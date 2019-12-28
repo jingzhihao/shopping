@@ -248,3 +248,13 @@
 2019-07-03 15:24:22,534 INFO 6160 [egg-watcher] Start watching: "C:\\Users\\Administrator\\Desktop\\vue商城项目\\server\\app.js"
 2019-07-03 15:24:22,535 INFO 6160 [egg-watcher:agent] watcher start success
 2019-07-03 15:24:22,563 INFO 6160 [egg:core] dump config after ready, 6ms
+2019-12-28 15:04:17,033 INFO 528 [egg:logger] init all loggers with options: {"dir":"D:\\vue\\shopping\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-12-28 15:04:17,041 INFO 528 [egg:core] dump config after load, 4ms
+2019-12-28 15:04:17,096 INFO 528 [egg-watcher] Start watching: ["D:\\vue\\shopping\\server\\app","D:\\vue\\shopping\\server\\config","D:\\vue\\shopping\\server\\mocks","D:\\vue\\shopping\\server\\mocks_proxy","D:\\vue\\shopping\\server\\app.js"]
+2019-12-28 15:04:17,096 INFO 528 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app"
+2019-12-28 15:04:17,096 INFO 528 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\config"
+2019-12-28 15:04:17,096 INFO 528 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks"
+2019-12-28 15:04:17,097 INFO 528 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks_proxy"
+2019-12-28 15:04:17,097 INFO 528 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app.js"
+2019-12-28 15:04:17,097 INFO 528 [egg-watcher:agent] watcher start success
+2019-12-28 15:04:17,115 INFO 528 [egg:core] dump config after ready, 10ms

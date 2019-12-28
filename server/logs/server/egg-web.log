@@ -287,3 +287,20 @@
 2019-07-03 15:24:24,735 INFO 10252 [egg-mongoose] instance[0] start successfully
 2019-07-03 15:24:24,737 INFO 10252 [egg-watcher:application] watcher start success
 2019-07-03 15:24:24,748 INFO 10252 [egg:core] dump config after ready, 7ms
+2019-12-28 15:04:18,241 INFO 9840 [egg:logger] init all loggers with options: {"dir":"D:\\vue\\shopping\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-12-28 15:04:18,274 INFO 9840 [egg-multipart] stream mode enable
+2019-12-28 15:04:18,827 INFO 9840 [egg-mongoose] connecting mongodb://127.0.0.1/shoppingMall
+2019-12-28 15:04:19,193 INFO 9840 [egg-static] starting static serve /public/ -> D:\vue\shopping\server\app\public
+2019-12-28 15:04:19,197 INFO 9840 [egg-security] use methodnoallow middleware
+2019-12-28 15:04:19,198 INFO 9840 [egg-security] use noopen middleware
+2019-12-28 15:04:19,199 INFO 9840 [egg-security] use nosniff middleware
+2019-12-28 15:04:19,200 INFO 9840 [egg-security] use xssProtection middleware
+2019-12-28 15:04:19,201 INFO 9840 [egg-security] use xframe middleware
+2019-12-28 15:04:19,202 INFO 9840 [egg-security] use dta middleware
+2019-12-28 15:04:19,202 INFO 9840 [egg-security] compose 6 middlewares into one security middleware
+2019-12-28 15:04:19,225 INFO 9840 [egg:core] dump config after load, 6ms
+2019-12-28 15:04:19,227 INFO 9840 [egg-mongoose] starting...
+2019-12-28 15:04:19,289 INFO 9840 [egg-mongoose] mongodb://127.0.0.1/shoppingMall connected successfully
+2019-12-28 15:04:19,297 INFO 9840 [egg-mongoose] instance[0] start successfully
+2019-12-28 15:04:19,300 INFO 9840 [egg-watcher:application] watcher start success
+2019-12-28 15:04:19,310 INFO 9840 [egg:core] dump config after ready, 9ms
