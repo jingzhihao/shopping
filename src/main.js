@@ -5,10 +5,14 @@ import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import service from "./http"
+import api from "./http/api"
+
+
+
 
 
 Vue.use(Vant);
-Vue.prototype.$axios = service
+Vue.prototype.$api = api
 Vue.config.productionTip = false
 
 new Vue({
