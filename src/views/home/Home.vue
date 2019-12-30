@@ -1,28 +1,21 @@
 <template>
   <div class="home">
-    <div>
+    <!-- 吸顶 -->
+    <van-sticky>
       <van-search v-model="input" placeholder="请输入搜索关键词" show-action shape="round">
         <div slot="action">搜索</div>
       </van-search>
-    </div>
+    </van-sticky>
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
       <!--轮播图-->
-      <div class="slideshow">
-        <slideshow :slides="arr.slides"></slideshow>
-      </div>
+        <slideshow class="slideshow" :slides="arr.slides"></slideshow>
       <!--导航-->
-      <div class="recommend">
-        <recommend :category="arr.category"></recommend>
-      </div>
+        <recommend class="recommend" :category="arr.category"></recommend>
       <div class="tood">
         <img src="http://images.baixingliangfan.cn/advertesPicture/20180404/20180404085441_850.gif" />
       </div>
       <!--商品推荐-->
-      <div class="commodity">
-        <navigation :recommend="arr.recommend">
-          
-        </navigation>
-      </div>
+        <navigation class="commodity" :recommend="arr.recommend"></navigation>
     </van-pull-refresh>
   </div>
 </template>
@@ -103,7 +96,7 @@ export default {
 }
 //商品推荐
 .commodity {
-  width: 98%;
+  width: 99%;
   height: 200px;
   //border: 1px solid red;
   background: rgb(243, 241, 241);

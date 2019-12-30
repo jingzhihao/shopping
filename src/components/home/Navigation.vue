@@ -14,6 +14,7 @@
           </div>
           <div class="cart">
             <van-icon name="shopping-cart-o" />
+            <span @click="details(item.goodsId)">查看详情</span>
           </div>
         </div>
       </div>
@@ -34,7 +35,11 @@ export default {
     return {};
   },
   components: { betterScroll },
-  methods: {},
+  methods: {
+    details(va){
+      console.log(va);
+    }
+  },
   mounted() {},
   watch: {},
   computed: {}
@@ -50,14 +55,14 @@ export default {
     margin: 11px;
   }
   .fdt {
-    width: 2000px;
+    width: 2115px;
     overflow: hidden;
     margin: 2px;
     display: flex;
     flex-wrap: nowrap;
   }
   .fot_t {
-    border: 1px solid red;
+    padding: 2px;
   }
   img {
     margin: 2px;
@@ -72,9 +77,8 @@ export default {
     text-overflow: ellipsis; /*用...代替超出部分*/
   }
   .cart {
-    border: 1px solid red;
-    width: 50px;
-    height: 50px;
+    //width: 5.333vw;
+    height: 5.333vw;
   }
 }
 </style>
