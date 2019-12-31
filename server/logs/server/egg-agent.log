@@ -291,3 +291,23 @@
 2019-12-30 22:03:34,337 INFO 14756 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"D:\\vue\\shopping\\server\\app\\public\\static\\css","stat":{"dev":3999876086,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":562949953661341,"size":0,"blocks":32,"atimeMs":1577714614330.518,"mtimeMs":1577584915100.2913,"ctimeMs":1577584915100.2913,"birthtimeMs":1577584915054.2886,"atime":"2019-12-30T14:03:34.331Z","mtime":"2019-12-29T02:01:55.100Z","ctime":"2019-12-29T02:01:55.100Z","birthtime":"2019-12-29T02:01:55.054Z"},"remove":false,"isDirectory":true,"isFile":false}
 2019-12-30 22:03:34,338 INFO 14756 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"D:\\vue\\shopping\\server\\app\\public\\static\\img","stat":{"dev":3999876086,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":562949953661925,"size":0,"blocks":8,"atimeMs":1577714614330.518,"mtimeMs":1577584915110.291,"ctimeMs":1577584915110.291,"birthtimeMs":1577584915102.291,"atime":"2019-12-30T14:03:34.331Z","mtime":"2019-12-29T02:01:55.110Z","ctime":"2019-12-29T02:01:55.110Z","birthtime":"2019-12-29T02:01:55.102Z"},"remove":false,"isDirectory":true,"isFile":false}
 2019-12-30 22:03:34,338 INFO 14756 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"D:\\vue\\shopping\\server\\app\\public\\static\\js","stat":{"dev":3999876086,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"blksize":4096,"ino":562949953662014,"size":0,"blocks":80,"atimeMs":1577714614330.518,"mtimeMs":1577584915196.2979,"ctimeMs":1577584915196.2979,"birthtimeMs":1577584915110.291,"atime":"2019-12-30T14:03:34.331Z","mtime":"2019-12-29T02:01:55.196Z","ctime":"2019-12-29T02:01:55.196Z","birthtime":"2019-12-29T02:01:55.110Z"},"remove":false,"isDirectory":true,"isFile":false}
+2019-12-31 08:24:29,450 INFO 2028 [egg:logger] init all loggers with options: {"dir":"D:\\vue\\shopping\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-12-31 08:24:29,457 INFO 2028 [egg:core] dump config after load, 4ms
+2019-12-31 08:24:29,559 INFO 2028 [egg-watcher] Start watching: ["D:\\vue\\shopping\\server\\app","D:\\vue\\shopping\\server\\config","D:\\vue\\shopping\\server\\mocks","D:\\vue\\shopping\\server\\mocks_proxy","D:\\vue\\shopping\\server\\app.js"]
+2019-12-31 08:24:29,559 INFO 2028 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app"
+2019-12-31 08:24:29,559 INFO 2028 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\config"
+2019-12-31 08:24:29,560 INFO 2028 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks"
+2019-12-31 08:24:29,560 INFO 2028 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks_proxy"
+2019-12-31 08:24:29,560 INFO 2028 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app.js"
+2019-12-31 08:24:29,560 INFO 2028 [egg-watcher:agent] watcher start success
+2019-12-31 08:24:29,575 INFO 2028 [egg:core] dump config after ready, 5ms
+2019-12-31 08:54:15,519 INFO 7852 [egg:logger] init all loggers with options: {"dir":"D:\\vue\\shopping\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-12-31 08:54:15,526 INFO 7852 [egg:core] dump config after load, 4ms
+2019-12-31 08:54:15,578 INFO 7852 [egg-watcher] Start watching: ["D:\\vue\\shopping\\server\\app","D:\\vue\\shopping\\server\\config","D:\\vue\\shopping\\server\\mocks","D:\\vue\\shopping\\server\\mocks_proxy","D:\\vue\\shopping\\server\\app.js"]
+2019-12-31 08:54:15,578 INFO 7852 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app"
+2019-12-31 08:54:15,579 INFO 7852 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\config"
+2019-12-31 08:54:15,579 INFO 7852 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks"
+2019-12-31 08:54:15,579 INFO 7852 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks_proxy"
+2019-12-31 08:54:15,579 INFO 7852 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app.js"
+2019-12-31 08:54:15,580 INFO 7852 [egg-watcher:agent] watcher start success
+2019-12-31 08:54:15,594 INFO 7852 [egg:core] dump config after ready, 7ms

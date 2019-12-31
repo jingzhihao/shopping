@@ -1,6 +1,13 @@
 import service from "./index"
 
 export default {
+    //详情
+    getGoodOne(id, page = 1) {
+        return service.req(`/goods/one?id=${id}&page=${page}`)
+    },
+
+    //购物车
+
     //首页的所有数据
     getRecommend() {
         return service.req('/recommend')

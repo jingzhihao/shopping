@@ -2,12 +2,12 @@
   <div>
     <div class="show">
       <router-view />
-      <van-tabbar  v-model="$route.path" >
-        <van-tabbar-item name="/" to='/' icon="wap-home">商城</van-tabbar-item>
-        <van-tabbar-item name="/classify" to="/classify" icon="wap-nav">分类</van-tabbar-item>
-        <van-tabbar-item name="/shoppingCart" to="shoppingCart" icon="shopping-cart">购物车</van-tabbar-item>
-        <van-tabbar-item name="/my" to="/my" icon="friends">我的</van-tabbar-item>
-      </van-tabbar>
+      <van-tabbar route>
+      <van-tabbar-item replace to="/" icon="wap-home">首页</van-tabbar-item>
+      <van-tabbar-item replace to="/classify" icon="wap-nav">分类</van-tabbar-item>
+      <van-tabbar-item replace to="/shoppingCart" icon="shopping-cart">购物车</van-tabbar-item>
+      <van-tabbar-item replace to="/my" icon="manager">我的</van-tabbar-item>
+    </van-tabbar>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      name: ""
+      //name: ""
     };
   },
   components: {},

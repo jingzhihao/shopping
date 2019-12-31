@@ -31,6 +31,7 @@ export default {
 
 <style scoped lang='scss'>
 .image {
+  width: 360px;
   height: 200px;
 }
 </style>
