@@ -1,48 +1,93 @@
 <template>
   <div>
-    <div class="">商品分类</div>
-    <div class="srot">
-      <div>
-        <van-sidebar v-model="activeKey" @change="onChange">
-          <van-sidebar-item title="标签名1" />
-          <van-sidebar-item title="标签名2" />
-          <van-sidebar-item title="标签名3" />
-        </van-sidebar>
-      </div>
-      <div>
-        <van-tabs>
-          <van-tab title="标签 1">内容 1</van-tab>
-          <van-tab title="标签 2">内容 2</van-tab>
-          <van-tab title="标签 3">内容 3</van-tab>
-          <van-tab title="标签 4">内容 4</van-tab>
-        </van-tabs>
+    <global-top>
+      <div slot="back"></div>
+      <div slot="title">商品分类</div>
+    </global-top>
+    <div class="main">
+      <!-- 左侧导航栏 -->
+      <van-sidebar v-model="mallCategoryId" class="left">
+        <van-sidebar-item
+          v-for="item in arr"
+          @click="change(item)"
+          :key="item.id"
+          :title="item.mallCategoryName"
+        />
+      </van-sidebar>
+      <!-- 右侧内容 -->
+      <div class="right">
+        <food :category="data" :dataname="dataname" ></food>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import food from "../../components/classify/Food";
 export default {
   data() {
     return {
-      activeKey: 0,
-      
+      arr: [],
+      mallCategoryId: 0,
+      data: [],
+      dataname: "",
     };
   },
-  components: {},
+  props: {},
+  components: {
+    food
+  },
   methods: {
-    onChange(index) {
-      Notify({ type: "primary", message: index });
+    //获取一、二级分类的数据（包括id）
+    getData() {
+      this.$api.getRecommend().then(res => {
+        if (res.code == 200) {
+          // 加载一级分类
+          this.arr = res.data.category;
+          //根据mallCategoryId来加载二级分类的列表和id
+          this.data = res.data.category[this.mallCategoryId].bxMallSubDto;
+          this.dataname =
+            res.data.category[this.mallCategoryId].bxMallSubDto[0].mallSubId;
+          this.actived = res.data.category[this.mallCategoryId].bxMallSubDto[0].mallSubId;
+        }
+      });
+    },
+    change(item) {
+      //点击导航修改mallCategoryId
+      this.mallCategoryId = item.mallCategoryId;
     }
   },
-  mounted() {},
-  watch: {},
+  mounted() {
+    //挂载时获取mallCategoryId并进行异步获取
+    this.$route.params.mallCategoryId
+      ? (this.mallCategoryId = this.$route.params.mallCategoryId)
+      : (this.mallCategoryId = 0);
+    this.getData();
+  },
+  watch: {
+    //监听mallCategoryId，修改时进行异步获取
+    mallCategoryId(val) {
+      this.getData();
+    }
+  },
   computed: {}
 };
 </script>
 
 <style scoped lang='scss'>
-.srot{
+.main {
   display: flex;
+  height: 86vh;
+  .right {
+    width: 78%;
+  }
+}
+.left {
+  height: 100%;
+  width: 22%;
+  background: #fafafa;
+  .van-sidebar-item {
+    padding: 10px;
+  }
 }
 </style>

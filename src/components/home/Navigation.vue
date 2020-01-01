@@ -3,7 +3,7 @@
     <span>商品推荐</span>
     <betterScroll>
       <div class="fdt">
-        <div class="fot_t" v-for="(item,index) in recommend" :key="index" @click="details(item.goodsId)">
+        <div class="fot_t" v-for="(item,index) in recommend" :key="index" @click="$go(item.goodsId)">
           <img :src="item.image" />
           <div class="goodsName">{{item.goodsName}}</div>
           <div class="mallPrice">
@@ -35,10 +35,7 @@ export default {
   },
   components: { betterScroll },
   methods: {
-    details(va) {
-      console.log(va);
-      this.$router.push({name:"evaluationDetails",query:{id:va}})
-    }
+   
   },
   mounted() {},
   watch: {},

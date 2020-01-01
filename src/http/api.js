@@ -1,6 +1,11 @@
 import service from "./index"
 
 export default {
+
+    //分类
+    category(id) {
+        return service.req(`/classification?mallSubId=${id}`)
+    },
     //详情
     getGoodOne(id, page = 1) {
         return service.req(`/goods/one?id=${id}&page=${page}`)

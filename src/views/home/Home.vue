@@ -5,11 +5,7 @@
         <!--刷新-->
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <!-- 吸顶 -->
-          <van-sticky>
-            <van-search v-model="input" placeholder="请输入搜索关键词" show-action shape="round">
-              <div slot="action">搜索</div>
-            </van-search>
-          </van-sticky>
+          <top></top>
           <!--轮播图-->
           <slideshow class="slideshow" :slides="arr.slides"></slideshow>
           <!--导航-->
@@ -22,23 +18,11 @@
           <!--商品推荐-->
           <navigation class="commodity" :recommend="arr.recommend"></navigation>
           <!--休闲商品-->
-          <div class="fnt">
-            <div class="fwt">1F</div>
-            <div class="font">{{this.floorName.floor1}}</div>
-          </div>
-          <leisureGoods class="hotProduct" :floor="arr.floor1"></leisureGoods>
+          <leisureGoods class="hotProduct" :title="floorName.floor1" flo="1F" :floor="arr.floor1"></leisureGoods>
           <!--新鲜水果-->
-          <div class="fnt">
-            <div class="fwt">2F</div>
-            <div class="font">{{this.floorName.floor2}}</div>
-          </div>
-          <freshFruit class="hotProduct" :floor="arr.floor2"></freshFruit>
+          <leisureGoods class="hotProduct" :title="floorName.floor2" flo="2F" :floor="arr.floor2"></leisureGoods>
           <!--营养奶品-->
-          <div class="fnt">
-            <div class="fwt">3F</div>
-            <div class="font">{{this.floorName.floor3}}</div>
-          </div>
-          <nutritionalMilk class="hotProduct" :floor="arr.floor3"></nutritionalMilk>
+          <leisureGoods class="hotProduct" :title="floorName.floor3" flo="3F" :floor="arr.floor3"></leisureGoods>
           <!--热销商品-->
           <div class="tout">
             热销商品
@@ -51,12 +35,11 @@
 </template>
 
 <script>
+import top from "../../components/home/Top";
 import slideshow from "../../components/home/GoodsShuffling";
 import recommend from "../../components/home/GoodsRecommendation";
 import navigation from "../../components/home/Navigation";
 import leisureGoods from "../../components/home/LeisureGoods";
-import nutritionalMilk from "../../components/home/NutritionalMilk";
-import freshFruit from "../../components/home/FreshFruit";
 import hotProduct from "../../components/home/HotProduct";
 import vertical from "../../components/Vertical";
 export default {
@@ -73,10 +56,9 @@ export default {
     recommend,
     navigation,
     leisureGoods,
-    nutritionalMilk,
-    freshFruit,
     hotProduct,
-    vertical
+    vertical,
+    top
   },
   methods: {
     onRefresh() {
@@ -93,7 +75,7 @@ export default {
         .then(res => {
           this.arr = res.data;
           this.floorName = res.data.floorName
-          console.log(this.arr);
+          console.log(this.floorName);
         })
         .catch(err => {
           console.log(err);
@@ -155,27 +137,7 @@ export default {
   margin: 10px auto;
 }
 
-//休闲
-.fnt {
-  width: 23.667vw;
-  //border: 1px solid red;
-  display: flex;
-  margin: 0 auto;
-  .fwt {
-    background: red;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    font-size: 13px;
-    color: rgb(247, 247, 247);
-    text-align: center;
-    line-height: 20px;
-  }
-  .font {
-    font-size: 14px;
-    color: rgb(201, 5, 5);
-  }
-}
+
 .tout{
   width: 99%;
   text-align: center;

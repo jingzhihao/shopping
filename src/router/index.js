@@ -116,6 +116,13 @@ const routes = [{
                 component: () =>
                     import ('../views/shoppingCart/ShoppingCart.vue')
             },
+            //城市
+            {
+                path: '/city',
+                name: 'city',
+                component: () =>
+                    import ('../views/city/City.vue')
+            },
         ]
     },
 ]

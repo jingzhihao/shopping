@@ -4,11 +4,10 @@ import router from './router'
 import store from './store'
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import service from "./http"
 import api from "./http/api"
 
-
-
+//引入
+import './global/'
 
 
 Vue.use(Vant);
