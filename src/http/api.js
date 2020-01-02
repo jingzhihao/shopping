@@ -1,6 +1,37 @@
 import service from "./index"
 
 export default {
+    /**
+     * 会员中心(My)所有接口
+     * loginOut 退出登录
+     * user     获取用户信息
+     * saveUser 修改保存用户信息(gender,email,year,month,day,id,nickname,avatar)
+     * getOrderNum 查询用户订单数量
+     * comment  商品评论(id,rate,content, anonymous(是否匿名), _id, order_id, image=[])
+     */
+    loginOut() {
+        return service.req(`/loginOut`)
+    },
+
+    user() {
+        return service.req(`/queryUser`)
+    },
+
+    saveUser({...args }) {
+        return service.req(`/saveUser`, args)
+    },
+    getOrderNum() {
+        return service.req(`/myOrder/orderNum`)
+    },
+
+    comment({...args }) {
+        return service.req(`/goodsOne/comment`, args)
+    },
+    //购物车支付页面(ShoppingPayMent)所有接口
+    //placeOrder 提交订单 参数：address:收货地址,tel:电话，orderId：所有商品的id，totalPrice：总价格,idDirect:用来判断是购物车结算还是直接购买,count:商品数量
+    //placeOrder({...args }) {
+    //    return service.req('/order', args)
+    //},
 
     //分类
     category(id) {
@@ -11,7 +42,29 @@ export default {
         return service.req(`/goods/one?id=${id}&page=${page}`)
     },
 
-    //购物车
+    /**
+     * 购物车(ShoppingCart)所有接口
+     * getCard      查询获取购物车数据
+     * editCart     购物车加减商品      参数 ： 数量  商品id 价格
+     * deleteShop   购物车商品删除      参数 id：需要删除的商品cid
+     */
+    getCard() {
+        return service.req(`/getCard`)
+    },
+
+    editCart({ count, id, mallPrice }) {
+        return service.req('/editCart', {
+            count,
+            id,
+            mallPrice
+        })
+    },
+
+    deleteShop(id) {
+        return service.req('/deleteShop', id)
+    },
+
+
 
     //首页的所有数据
     getRecommend() {
@@ -28,21 +81,103 @@ export default {
     getCode() {
         return service.req('/verify')
     },
-    //注册
+
+
+    // ===============================================================================================================
+    /**
+     * 用户相关(user文件夹下)所有接口
+     * getAverify           获取登录注册默认验证码
+     * replaceVerify        更换验证码
+     * getAddress           查询用户收货地址 
+     * getDefaultAddress    查询默认收货地址
+     * setDefaultAddress    设置默认收货地址    参数：id：地址id
+     * postAddress          增加收货地址        参数：name:用户名,tel:电话，address:(省+市+区+详情地址)，isDefault：是否默认
+     *                                province：省，city：市，county：区，addressDetail：详情地址，
+     *                                areaCode：地区代码，id：修改地址时候要传id
+     * deleteAddress        删除地址            参数： id：地址_id
+     * getCollection        查询我的收藏    参数：page，页码，默认第一页
+     * register             注册            参数：nickname，用户名 password：密码，verify:验证码
+     * login                登录
+     * codeMsg              短信验证码      参数： sms 4位验证码
+     * getMyOrder           订单查询        参数：evaluate：用来判断是不是查询订单，默认false
+     * alreadyEvaluated     查询已评价      参数： page：页面
+     * tobeEvaluated        查询待评价      参数： page：页面
+     * evaluateOne          查询单条评论    参数： id：商品id，_id：数据库的那条id
+     */
+    // getAverify() {
+    //     return process.env.NODE_ENV === 'production' ? `/v1/verify?mt=${Math.random()}` : `/api/v1/verify?mt=${Math.random()}`
+    // }
+
+    getAddress() {
+        return service.req(`/getAddress`)
+    },
+
+    getDefaultAddress() {
+        return service.req(`/getDefaultAddress`)
+    },
+
+    setDefaultAddress(id) {
+        return service.req(`/setDefaultAddress`, { id })
+    },
+
+    postAddress({...args }) {
+        return service.req(`/address`, args)
+    },
+
+    deleteAddress(id) {
+        return service.req('/deleteAddress', {
+            id
+        })
+    },
+
+    getCollection(page = 1) {
+        return service.req(`/collection/list`, {
+            params: { page }
+        })
+    },
+
     getRegister({ nickname, password, verify }) {
         return service.req('/register', {
             nickname,
             password,
             verify,
+
         })
     },
-    //登录
+
     getLogin({ nickname, password, verify }) {
         return service.req('/login', {
             nickname,
             password,
             verify
         })
-    }
+    },
 
+    codeMsg(phone) {
+        return service.req('/sendCodeMsg', {
+            phone
+        })
+    },
+
+    getMyOrder() {
+        return service.req(`/myOrder`)
+    },
+
+    alreadyEvaluated(page = 1) {
+        return service.req('/alreadyEvaluated', {
+            params: { page }
+        })
+    },
+
+    tobeEvaluated(page = 1) {
+        return service.req('/tobeEvaluated', {
+            params: { page }
+        })
+    },
+
+    evaluateOne(_id) {
+        return service.req('/evaluateOne', {
+            _id
+        })
+    }
 }

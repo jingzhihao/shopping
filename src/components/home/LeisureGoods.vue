@@ -55,7 +55,7 @@ export default {
   .desc {
     width: 50%;
     height: 100px;
-    background: blue;
+    //background: blue;
     float: left;
     img {
       width: 100%;

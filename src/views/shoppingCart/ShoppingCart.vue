@@ -1,39 +1,43 @@
 <template>
- <div>
-    <div class="car">
-      <div>购物车</div>
+  <div>
+    <global-top>
+      <div slot="back"></div>
+      <div slot="title">购物车</div>
+    </global-top>
+    <div>
+      <div v-if="this.name === ''">
+        <not></not>
+      </div>
+      <div v-else-if="this.name !== ''">
+        <logged></logged>
+      </div>
     </div>
- </div>
+  </div>
 </template>
 
 <script>
- export default {
-   data () {
-     return {
-        neme:''
-     }
-   },
-   components: {
-
-   },
-   methods: {
-
-   },
-   mounted() {
-
-   },
-   watch: {
-
-   },
-   computed: {
-
-   }
- }
+import not from "../../components/shoppingCar/Not";
+import logged from "../../components/shoppingCar/Logged";
+export default {
+  data() {
+    return {
+      name: ''
+    };
+  },
+  components: {
+    not,
+    logged
+  },
+  methods: {},
+  mounted() {
+    if (localStorage.name) {
+      this.name = localStorage.getItem("name");
+    }
+  },
+  watch: {},
+  computed: {}
+};
 </script>
 
 <style scoped lang='scss'>
-.car{
-  width: 100;
-  text-align: center;
-}
 </style>

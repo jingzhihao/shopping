@@ -9,11 +9,15 @@
         :name="item.mallSubId"
       ></van-tab>
     </van-tabs>
+    <vertical>
+      <listbox :arr="this.arr"></listbox>
+    </vertical>
   </div>
 </template>
 
 <script>
-import vertical from "../../components/Vertical";
+import vertical from "../../components/solt/Vertical";
+import listbox from "../../components/classify/Listbox";
 export default {
   props: {
     category: {
@@ -32,6 +36,7 @@ export default {
   },
   components: {
     vertical,
+    listbox
   },
   methods: {
     // 获取每项列表
@@ -39,6 +44,7 @@ export default {
       this.$api.category(name).then(res => {
         if (res.code === 200) {
           this.arr = res.dataList;
+          console.log(res.dataList);
         }
       });
     }

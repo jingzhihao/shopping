@@ -62,7 +62,7 @@ export default {
           if (res.code === 200) {
             console.log("登录成功");
             localStorage.setItem("name",this.from.nickname)
-            //this.$router.push("")
+            this.$router.push("my")
           }
         })
         .catch(err => {

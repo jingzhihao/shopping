@@ -1,15 +1,17 @@
 <template>
   <div class="home">
+    <!--竖向滚动-->
     <vertical>
       <div>
         <!--刷新-->
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-          <!-- 吸顶 -->
+          <!-- 吸顶 头部导航 -->
           <top></top>
           <!--轮播图-->
           <slideshow class="slideshow" :slides="arr.slides"></slideshow>
-          <!--导航-->
+          <!--导航 中外名酒-->
           <recommend class="recommend" :category="arr.category"></recommend>
+          <!--图片-->
           <div class="tood">
             <img
               src="http://images.baixingliangfan.cn/advertesPicture/20180404/20180404085441_850.gif"
@@ -24,10 +26,7 @@
           <!--营养奶品-->
           <leisureGoods class="hotProduct" :title="floorName.floor3" flo="3F" :floor="arr.floor3"></leisureGoods>
           <!--热销商品-->
-          <div class="tout">
-            热销商品
-          </div>
-          <hotProduct class="hotGoods" :hotGoods="arr.hotGoods"></hotProduct>
+          <hotProduct class="hotGoods"  :hotGoods="arr.hotGoods"></hotProduct>
         </van-pull-refresh>
       </div>
     </vertical>
@@ -41,7 +40,7 @@ import recommend from "../../components/home/GoodsRecommendation";
 import navigation from "../../components/home/Navigation";
 import leisureGoods from "../../components/home/LeisureGoods";
 import hotProduct from "../../components/home/HotProduct";
-import vertical from "../../components/Vertical";
+import vertical from "../../components/solt/Vertical";
 export default {
   data() {
     return {
@@ -75,7 +74,7 @@ export default {
         .then(res => {
           this.arr = res.data;
           this.floorName = res.data.floorName
-          console.log(this.floorName);
+          //console.log(this.arr.hotGoods);
         })
         .catch(err => {
           console.log(err);
@@ -91,9 +90,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-* {
-  background: rgba(218, 218, 218, 0.87);
-}
+
 //轮播图
 .slideshow {
   height: 200px;
@@ -104,14 +101,8 @@ export default {
 .recommend {
   width: 96%;
   height: 100px;
-  background: rgb(243, 241, 241);
-  box-shadow: 0 0 12px rgb(204, 204, 204);
-  //border: 1px solid red;
   margin: 10px auto;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 //
 .tood {
@@ -131,18 +122,10 @@ export default {
 }
 //休闲食品
 .hotProduct {
-  width: 100%;
+  width: 99%;
   height: 77.333vw;
   background: rgb(243, 241, 241);
   margin: 10px auto;
-}
-
-
-.tout{
-  width: 99%;
-  text-align: center;
-  line-height:20px;
-  color: rgb(201, 5, 5);
 }
 .hotGoods{
   width: 99%;

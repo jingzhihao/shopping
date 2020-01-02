@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import betterScroll from "../../components/BetterScroll";
+import betterScroll from "../../components/solt/BetterScroll";
 export default {
   props: {
     recommend: {

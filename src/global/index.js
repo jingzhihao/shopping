@@ -10,5 +10,5 @@ Vue.prototype.$go = function(val) {
 }
 Vue.prototype.$city = city
 
-import Top from '../components/GlobalTop'
+import Top from '../components/solt/GlobalTop'
 Vue.component('globalTop', Top)

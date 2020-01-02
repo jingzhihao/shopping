@@ -44,6 +44,9 @@ export default {
         if (res.code == 200) {
           // 加载一级分类
           this.arr = res.data.category;
+
+
+          console.log(this.arr);
           //根据mallCategoryId来加载二级分类的列表和id
           this.data = res.data.category[this.mallCategoryId].bxMallSubDto;
           this.dataname =
@@ -63,6 +66,7 @@ export default {
       ? (this.mallCategoryId = this.$route.params.mallCategoryId)
       : (this.mallCategoryId = 0);
     this.getData();
+    //this.mallCategoryId = this.$route.query.id
   },
   watch: {
     //监听mallCategoryId，修改时进行异步获取

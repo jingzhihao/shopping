@@ -13,7 +13,7 @@
       @search="onSearch"
       background="none"
     >
-      <div slot="action" @click="onSearch">搜索</div>
+      <div slot="action">搜索</div>
     </van-search>
   </div>
 </template>
@@ -29,10 +29,10 @@ export default {
   },
   components: {},
   methods: {
-    onSearch() {},
+    onSearch(){},
     getcity() {
       if (localStorage.getItem("city")) {
-        console.log(localStorage.getItem("city"));
+        //console.log(localStorage.getItem("city"));
         this.city = localStorage.getItem("city");
       } else {
         this, (city = "未获取");
