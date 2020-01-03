@@ -1,15 +1,23 @@
 <template>
   <div>
+    <global-top>
+      <div slot="title">地址列表</div>
+    </global-top>
     <!--地址列表-->
-    <van-address-list
-      v-model="chosenAddressId"
-      :list="list"
-      :disabled-list="disabledList"
-      disabled-text="以下地址超出配送范围"
-      default-tag-text="默认"
-      @add="onAdd"
-      @edit="onEdit"
-    />
+
+    <div class="font" v-if="this.arr.length === 0">
+      暂无数据，请添加收货地址
+       <van-address-list @add="onAdd"/>
+    </div>
+    <div v-else-if="this.arr.length > 0">
+      <van-address-list
+        v-model="chosenAddressId"
+        :list="arr"
+        default-tag-text="默认"
+        @add="onAdd"
+        @edit="onEdit"
+      />
+    </div>
   </div>
 </template>
 
@@ -18,45 +26,46 @@ export default {
   data() {
     return {
       chosenAddressId: "1",
-      list: [
-        {
-          id: "1",
-          name: "张三",
-          tel: "13000000000",
-          address: "浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室"
-        },
-        {
-          id: "2",
-          name: "李四",
-          tel: "1310000000",
-          address: "浙江省杭州市拱墅区莫干山路 50 号"
-        }
-      ],
-      disabledList: [
-        {
-          id: "3",
-          name: "王五",
-          tel: "1320000000",
-          address: "浙江省杭州市滨江区江南大道 15 号"
-        }
-      ]
+      arr: [],
     };
   },
   components: {},
   methods: {
+    //获取用户的地址
+    getAdd() {
+      this.$api
+        .getAddress()
+        .then(res => {
+          //console.log(res);
+          this.arr = res.address;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     onAdd() {
-      Toast("新增地址");
+      //console.log(321);
+     this.$router.push('/editAddress')
     },
 
-    onEdit(item, index) {
-      Toast("编辑地址:" + index);
+    onEdit(item) {
+      //console.log(item);
+      this.$router.push({name:'editAddress',query:{item:item}})
+    
     }
   },
-  mounted() {},
+  mounted() {
+    this.getAdd();
+  },
   watch: {},
   computed: {}
 };
 </script>
 
 <style scoped lang='scss'>
+.font {
+  width: 80%;
+  text-align: center;
+  margin: 10px auto;
+}
 </style>

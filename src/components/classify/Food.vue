@@ -41,15 +41,17 @@ export default {
   methods: {
     // 获取每项列表
     getDetail(name, title) {
+      console.log('没有数据：'+name);
       this.$api.category(name).then(res => {
         if (res.code === 200) {
           this.arr = res.dataList;
-          console.log(res.dataList);
+          console.log(this.arr);
         }
       });
     }
   },
   mounted() {
+    this.getDetail();
   },
   watch: {
     //监听dataid的变化进行异步获取

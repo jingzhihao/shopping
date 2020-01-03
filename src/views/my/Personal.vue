@@ -1,7 +1,7 @@
 <template>
   <div>
     <global-top>
-      <div slot="title">浏览历史</div>
+      <div slot="title">个人资料</div>
     </global-top>
   </div>
 </template>

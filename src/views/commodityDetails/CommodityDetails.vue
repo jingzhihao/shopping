@@ -33,12 +33,18 @@
         <div>进入店铺</div>
       </div>
       <van-tabs v-model="active">
-      <van-tab title="商品详情">
-        <div v-html="arr.detail"></div>
-      </van-tab>
-      <van-tab title="用户评论" class="des">暂无评论</van-tab>
-    </van-tabs>
+        <van-tab title="商品详情">
+          <div v-html="arr.detail"></div>
+        </van-tab>
+        <van-tab title="用户评论" class="des">暂无评论</van-tab>
+      </van-tabs>
     </div>
+    <van-goods-action>
+      <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon" />
+      <van-goods-action-button type="warning" text="加入购物车" @click="addCar(arr.id)" />
+      <van-goods-action-button type="danger" text="立即购买" @click="onClickButton" />
+    </van-goods-action>
   </div>
 </template>
 
@@ -47,17 +53,42 @@ export default {
   data() {
     return {
       arr: {},
-      active:0
+      active: 0,
+      onClickIcon() {
+        Toast("点击图标");
+      },
+      onClickButton() {
+        Toast("点击按钮");
+      }
     };
   },
   components: {},
   methods: {
+    //加入购物车
+    addCar(va) {
+      //console.log(va);
+      this.$api
+        .addShop(va)
+        .then(res => {
+          if (res.code === 200) {
+            console.log("加入购物车成功");
+          } else {
+            console.log("加入购物车失败");
+          }
+          //console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+
     getGoodOne() {
       this.$api
         .getGoodOne(this.$route.query.id)
         .then(res => {
           //console.log(res);
           this.arr = res.goods.goodsOne;
+          console.log(this.arr);
         })
         .catch(err => {
           console.log(err);
@@ -124,7 +155,7 @@ export default {
   width: 20px;
   height: 18px;
 }
-.des{
+.des {
   text-align: center;
 }
 </style>

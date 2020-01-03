@@ -16,7 +16,7 @@
       </van-sidebar>
       <!-- 右侧内容 -->
       <div class="right">
-        <food :category="data" :dataname="dataname" ></food>
+        <food :category="data" :dataname="dataname"></food>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ export default {
       arr: [],
       mallCategoryId: 0,
       data: [],
-      dataname: "",
+      dataname: ""
     };
   },
   props: {},
@@ -44,14 +44,12 @@ export default {
         if (res.code == 200) {
           // 加载一级分类
           this.arr = res.data.category;
-
-
-          console.log(this.arr);
-          //根据mallCategoryId来加载二级分类的列表和id
+          //console.log(this.arr);
+          //加载二级分类的列表
           this.data = res.data.category[this.mallCategoryId].bxMallSubDto;
-          this.dataname =
-            res.data.category[this.mallCategoryId].bxMallSubDto[0].mallSubId;
-          this.actived = res.data.category[this.mallCategoryId].bxMallSubDto[0].mallSubId;
+          //console.log(this.data);
+          this.dataname = res.data.category[this.mallCategoryId].bxMallSubDto[0].mallSubId;
+          console.log('name:'+this.dataname);
         }
       });
     },
@@ -61,12 +59,14 @@ export default {
     }
   },
   mounted() {
-    //挂载时获取mallCategoryId并进行异步获取
-    this.$route.params.mallCategoryId
-      ? (this.mallCategoryId = this.$route.params.mallCategoryId)
-      : (this.mallCategoryId = 0);
-    this.getData();
+    //this.getData();
     //this.mallCategoryId = this.$route.query.id
+    if (this.$route.query.id) {
+      this.mallCategoryId = this.$route.query.id;
+      this.getData();
+    } else {
+      this.getData();
+    }
   },
   watch: {
     //监听mallCategoryId，修改时进行异步获取

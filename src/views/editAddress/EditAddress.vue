@@ -1,50 +1,74 @@
 <template>
   <div>
+    <global-top>
+      <div slot="title">编辑地址</div>
+    </global-top>
     <!--编辑地址-->
     <van-address-edit
-      :area-list="areaList"
+      :area-list="area"
+      :address-info="list"
       show-postal
       show-delete
       show-set-default
       show-search-result
-      :search-result="searchResult"
-      :area-columns-placeholder="['请选择', '请选择', '请选择']"
       @save="onSave"
       @delete="onDelete"
-      @change-detail="onChangeDetail"
     />
   </div>
 </template>
 
 <script>
+import area from "../../js/area.js";
 export default {
   data() {
     return {
-      areaList,
+      list:{},
+      area: area,
       searchResult: []
     };
   },
   components: {},
   methods: {
-    onSave() {
-      Toast('save');
+    onSave(content) {
+      //console.log(content);
+      let args = {
+        name: content.name,
+        tel: content.tel,
+        province: content.province,
+        city: content.city,
+        county: content.county,
+        addressDetail: content.addressDetail,
+        areaCode:content.areaCode,
+        address:
+          content.province +
+          content.city +
+          content.county +
+          content.addressDetail,
+        isDefault: content.isDefault,
+        id:content.id
+      };
+      this.$api.postAddress(args).then(res => {
+         //console.log(res);
+         if(res.code === 200){
+           console.log('地址编辑成功');
+         }else{
+           console.log('地址添加失败');
+         }
+      }).catch(err => {
+         console.log(err);
+       })
     },
-    onDelete() {
-      Toast('delete');
+    onDelete(content) {
+      console.log(content);
     },
     onChangeDetail(val) {
-      if (val) {
-        this.searchResult = [{
-          name: '黄龙万科中心',
-          address: '杭州市西湖区'
-        }];
-      } else {
-        this.searchResult = [];
-      }
+      console.log(123);
     }
-  
   },
-  mounted() {},
+  mounted() {
+      this.list = this.$route.query.item
+      
+  },
   watch: {},
   computed: {}
 };

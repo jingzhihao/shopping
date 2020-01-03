@@ -6,16 +6,14 @@
         <!--刷新-->
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <!-- 吸顶 头部导航 -->
-          <top></top>
+          <top :arr="this.arr"></top>
           <!--轮播图-->
           <slideshow class="slideshow" :slides="arr.slides"></slideshow>
           <!--导航 中外名酒-->
           <recommend class="recommend" :category="arr.category"></recommend>
           <!--图片-->
           <div class="tood">
-            <img
-              src="http://images.baixingliangfan.cn/advertesPicture/20180404/20180404085441_850.gif"
-            />
+            <img :src="img.PICTURE_ADDRESS" />
           </div>
           <!--商品推荐-->
           <navigation class="commodity" :recommend="arr.recommend"></navigation>
@@ -26,7 +24,7 @@
           <!--营养奶品-->
           <leisureGoods class="hotProduct" :title="floorName.floor3" flo="3F" :floor="arr.floor3"></leisureGoods>
           <!--热销商品-->
-          <hotProduct class="hotGoods"  :hotGoods="arr.hotGoods"></hotProduct>
+          <hotProduct class="hotGoods" :hotGoods="arr.hotGoods"></hotProduct>
         </van-pull-refresh>
       </div>
     </vertical>
@@ -47,7 +45,8 @@ export default {
       input: "",
       arr: {},
       isLoading: false,
-      floorName:{}
+      floorName: {},
+      img: ""
     };
   },
   components: {
@@ -73,8 +72,9 @@ export default {
         .getRecommend()
         .then(res => {
           this.arr = res.data;
-          this.floorName = res.data.floorName
-          //console.log(this.arr.hotGoods);
+          this.floorName = res.data.floorName;
+          this.img = res.data.advertesPicture;
+          //console.log(this.arr);
         })
         .catch(err => {
           console.log(err);
@@ -90,11 +90,10 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-
 //轮播图
 .slideshow {
   height: 200px;
-  margin:2.8vw 1.8vw 0;
+  margin: 2.8vw 1.8vw 0;
 }
 
 //导航
@@ -127,7 +126,7 @@ export default {
   background: rgb(243, 241, 241);
   margin: 10px auto;
 }
-.hotGoods{
+.hotGoods {
   width: 99%;
   //height: 1000px;
   margin: 10px auto;

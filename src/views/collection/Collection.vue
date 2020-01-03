@@ -1,6 +1,8 @@
 <template>
  <div>
-
+    <global-top>
+      <div slot="title">我的收藏</div>
+    </global-top>
  </div>
 </template>
 

@@ -25,8 +25,8 @@
    },
    methods: {
       onSech(val){
-          //this.$router.push({name:classify,query: { id: val }})
-          console.log(val);
+          this.$router.push({name:'classify',query: { id: val }})
+          //console.log(val);
       }
    },
    mounted() {

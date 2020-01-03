@@ -10,8 +10,8 @@
           <img src="../../assets/img/my.png" />
         </div>
         <div class="fnt">欢迎你:{{this.name}}</div>
-        <div @click="dele" v-if="this.name !== ''">退出登录</div>
-        <div @click="login" v-else-if="this.name === ''">登录/注册</div>
+        <div @click="dele()" v-if="this.name !== ''">退出登录</div>
+        <div @click="login()" v-else-if="this.name === ''">登录/注册</div>
       </div>
     </div>
     <mybox></mybox>
@@ -36,7 +36,13 @@ export default {
   methods: {
     dele(){
      localStorage.name = this.name = ''
+    //  this.$api.loginOut().then(res => {
+    //    console.log(res);
+    //  })
     },
+    login(){
+      this.$router.push('/login')
+    }
   },
   mounted() {
 

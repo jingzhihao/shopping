@@ -1,11 +1,8 @@
 <template>
   <div>
-    <van-submit-bar :price="3050" button-text="提交订单" @submit="onSubmit">
-      <van-checkbox v-model="checked">全选</van-checkbox>
-      <span slot="tip">
-        <span>修改地址</span>
-      </span>
-    </van-submit-bar>
+   <global-top>
+      <div slot="title">我的订单</div>
+    </global-top>
   </div>
 </template>
 

@@ -8,11 +8,16 @@ import api from "./http/api"
 
 //引入
 import './global/'
+//引入地图
+
+
 
 
 Vue.use(Vant);
 Vue.prototype.$api = api
 Vue.config.productionTip = false
+
+
 
 new Vue({
     router,
