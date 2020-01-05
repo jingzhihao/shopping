@@ -6,14 +6,12 @@
     </div>
     <van-search
       class="search"
-      v-model="input"
+      v-model="value"
       placeholder="请输入搜索关键词"
-      
       shape="round"
       @search="onSearch"
       background="none"
     >
-      
     </van-search>
   </div>
 </template>
@@ -28,7 +26,7 @@ export default {
   },
   data() {
     return {
-      input: "",
+      value: "",
       city: "定位中.."
     };
   },
@@ -81,7 +79,7 @@ export default {
     console.log(this.arr);
   },
   watch: {
-    input(val){
+    value(val){
         console.log(val);
         //this.arr = this.arr.filter(item => {
         // return JSON.stringify(item).includes(val);

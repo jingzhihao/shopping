@@ -6,12 +6,8 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import api from "./http/api"
 
-//引入
+//引入公共的头部
 import './global/'
-//引入地图
-
-
-
 
 Vue.use(Vant);
 Vue.prototype.$api = api

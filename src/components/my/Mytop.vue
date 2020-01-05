@@ -1,19 +1,19 @@
 <template>
   <div>
     <div class="font">
-      <div class="fwt">
+      <div class="fwt" @click="$go('/myOrder')">
         <van-icon name="comment-o" size="25"/><div class="left">全部订单</div>
         <div class="right"><van-icon name="arrow" /></div>
       </div>
-      <div class="fwt">
+      <div class="fwt" @click="$go('/collection')">
         <van-icon name="points" size="25"/><div class="left">收藏商品</div>
         <div class="right"><van-icon name="arrow" /></div>
       </div>
-      <div class="fwt">
+      <div class="fwt" @click="$go('/addressList')">
         <van-icon name="aim" size="25"/><div class="left">地址管理</div>
         <div class="right"><van-icon name="arrow" /></div>
       </div>
-      <div class="fwt">
+      <div class="fwt" @click="$go('/browsingHistory')">
         <van-icon name="send-gift-o" size="25"/><div class="left">最近浏览</div>
         <div class="right"><van-icon name="arrow" /></div>
       </div>

@@ -21,9 +21,10 @@
       <div class="freight">
         <div class="freight-one">运费：{{arr.__v}}</div>
         <div class="freight-one">剩余：{{arr.amount}}</div>
-        <div class="freight-two">
+        <div class="freight-two" >
           收藏:
-          <van-icon name="like-o" class="xin" />
+          <div v-if="flag === true" @click="collection(arr.id)">点击收藏</div>
+          <div v-else @click="getisCollection(arr.id)">取消收藏</div>
         </div>
       </div>
       <div class="desc">
@@ -41,7 +42,7 @@
     </div>
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
-      <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon" />
+      <van-goods-action-icon icon="cart-o" text="购物车" @click="$go('/shoppingCart')" />
       <van-goods-action-button type="warning" text="加入购物车" @click="addCar(arr.id)" />
       <van-goods-action-button type="danger" text="立即购买" @click="onClickButton" />
     </van-goods-action>
@@ -52,6 +53,7 @@
 export default {
   data() {
     return {
+      flag: true,
       arr: {},
       active: 0,
       onClickIcon() {
@@ -64,6 +66,30 @@ export default {
   },
   components: {},
   methods: {
+    //点击收藏
+    collection(va) {
+      console.log(va);
+        this.$api.collection(va).then(res => {
+          console.log(res);
+          if (res.code === 200) {
+            this.$toast(res.msg);
+            this.getisCollection(va);
+          } else {
+            this.$toast("收藏失败");
+          }
+        });
+       
+    },
+    //取消收藏
+    getisCollection(id) {
+      this.$api.isCollection(id).then(res => {
+        if (res.isCollection === 1) {
+          this.flag = false;
+        } else {
+          this.flag = true;
+        }
+      });
+    },
     //加入购物车
     addCar(va) {
       //console.log(va);

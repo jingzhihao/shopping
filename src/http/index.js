@@ -1,9 +1,8 @@
-// 封装axios请求
 import axios from 'axios'
 import qs from 'qs'
+// import { Loading, } from 'element-ui'
 
-
-let loading = null
+// let loading = null
 
 
 // 判断当前环境是生产环境还是开发环境
@@ -15,10 +14,11 @@ const isProduction = process.env.NODE_ENV === 'production'
 const service = axios.create()
 
 // 接口基础路径
-service.defaults.baseURL = isProduction ? '线上接口地址' : '/api'
-    // 超时时间
-service.defaults.timeout = 10000
-    // 请求头类型
+service.defaults.baseURL = isProduction ? '' : '/api'
+
+// 超时时间
+// service.defaults.timeout = 10000
+// 请求头类型
 service.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 // 请求拦截器
@@ -37,32 +37,25 @@ service.interceptors.request.use(config => {
     return Promise.reject(err)
 })
 
-
 // 响应拦截器
 service.interceptors.response.use(response => {
-    if (loading) {
-        loading.close()
-    }
+    // if (loading) {
+    //     loading.close()
+    // }
     return response.data
 }, err => {
     // if (err.response.status === 401) {
-    //   Message.error(err.response.data.msg)
+    //     Message.error(err.response.data.msg)
     // }
 })
 
-
-// 封装get和post
 service.req = function(...params) {
     if (params.length === 1) {
-        // 发的是get请求
         return service.get(params[0])
     }
     if (params.length === 2) {
-        // post请求
-        // qs做序列化
         return service.post(params[0], qs.stringify(params[1]))
     }
 }
 
-// 默认到出创建的配置对象
 export default service

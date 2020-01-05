@@ -1,7 +1,6 @@
 <template>
   <div>
     <global-top>
-      <div slot="back"></div>
       <div slot="title">购物车</div>
     </global-top>
     <div>
@@ -9,7 +8,7 @@
         <not></not>
       </div>
       <div v-else-if="this.name !== ''">
-        <logged></logged>
+        <logged ></logged>
       </div>
     </div>
   </div>

@@ -1,0 +1,275 @@
+2020-01-05 20:27:53,604 ERROR 8596 [-/127.0.0.1/-/4ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:27:54,644 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:27:55,579 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:27:55,779 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:27:55,829 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:27:56,011 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:29:14,212 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:29:44,555 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:40:32,047 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:44:02,107 ERROR 8596 [-/127.0.0.1/-/2ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:48:41,476 ERROR 8596 [-/127.0.0.1/-/2ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 20:49:09,503 ERROR 8596 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 8596
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 22:19:24,929 ERROR 6384 [-/127.0.0.1/-/3ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 6384
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 22:19:27,952 ERROR 6384 [-/127.0.0.1/-/2ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 6384
+hostname: LAPTOP-FVBLPV22
+
+2020-01-05 22:19:29,856 ERROR 6384 [-/127.0.0.1/-/2ms POST /v1/collection] nodejs.TypeError: Cannot read property 'id' of null
+    at OperatingGoodsController.collection (D:\vue\shopping\server\app\controller\api\operatingGoods.js:16:24)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 6384
+hostname: LAPTOP-FVBLPV22
+

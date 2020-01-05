@@ -144,3 +144,54 @@
 2020-01-03 16:57:39,536 INFO 4788 [Timer] D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 41540466ms at 2020-01-04 04:30:00.002
 2020-01-03 16:57:39,536 INFO 4788 [Timer] D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 25340464ms at 2020-01-04 00:00:00.000
 2020-01-03 16:57:39,536 INFO 4788 [Timer] D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 25341464ms at 2020-01-04 00:00:01.000
+2020-01-05 11:15:29,952 INFO 17580 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 11:15:29,952 INFO 17580 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 11:15:29,952 INFO 17580 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 11:15:31,527 INFO 7040 [Timer] D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 62068477ms at 2020-01-06 04:30:00.004
+2020-01-05 11:15:31,528 INFO 7040 [Timer] D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 45868473ms at 2020-01-06 00:00:00.001
+2020-01-05 11:15:31,528 INFO 7040 [Timer] D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 45869472ms at 2020-01-06 00:00:01.000
+2020-01-05 13:39:24,257 INFO 16392 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 13:39:24,257 INFO 16392 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 13:39:24,257 INFO 16392 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 14:39:24,345 INFO 18848 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 14:39:24,345 INFO 18848 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 14:39:24,345 INFO 18848 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 14:39:28,027 INFO 17028 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 14:39:28,027 INFO 17028 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 14:39:28,027 INFO 17028 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 15:53:12,888 INFO 11372 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 15:53:12,889 INFO 11372 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 15:53:12,889 INFO 11372 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 16:53:13,267 INFO 13308 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 16:53:13,267 INFO 13308 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 16:53:13,267 INFO 13308 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 16:53:17,746 INFO 20368 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 16:53:17,746 INFO 20368 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 16:53:17,746 INFO 20368 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 18:23:41,079 INFO 19216 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 18:23:41,079 INFO 19216 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 18:23:41,079 INFO 19216 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 18:38:07,955 INFO 11156 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 18:38:07,955 INFO 11156 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 18:38:07,955 INFO 11156 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 19:26:08,233 INFO 17492 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 19:26:08,233 INFO 17492 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 19:26:08,233 INFO 17492 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 19:53:07,786 INFO 18204 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 19:53:07,786 INFO 18204 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 19:53:07,786 INFO 18204 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 20:26:54,187 INFO 8596 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 20:26:54,187 INFO 8596 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 20:26:54,187 INFO 8596 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 21:30:38,684 INFO 18360 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 21:30:38,684 INFO 18360 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 21:30:38,684 INFO 18360 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 21:30:42,989 INFO 2732 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 21:30:42,989 INFO 2732 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 21:30:42,989 INFO 2732 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 21:38:29,637 INFO 6384 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2020-01-05 21:38:29,637 INFO 6384 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-01-05 21:38:29,637 INFO 6384 [egg-schedule]: register schedule D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-01-05 21:38:31,470 INFO 8016 [Timer] D:\vue\shopping\server\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 24688533ms at 2020-01-06 04:30:00.003
+2020-01-05 21:38:31,471 INFO 8016 [Timer] D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 8488530ms at 2020-01-06 00:00:00.001
+2020-01-05 21:38:31,471 INFO 8016 [Timer] D:\vue\shopping\server\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 8489529ms at 2020-01-06 00:00:01.000

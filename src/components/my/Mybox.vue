@@ -1,27 +1,27 @@
 <template>
   <div>
     <div class="fwt">
-      <div>
+      <div to=""> 
         <van-icon name="gold-coin-o" size="30"/>
         <br>
         <span>待付款</span>
       </div>
-      <div>
+      <div to="">
         <van-icon name="send-gift-o" size="30"/>
         <br>
         <span>待发货</span>
       </div>
-      <div>
+      <div to="">
         <van-icon name="logistics" size="30"/>
         <br>
         <span>待收货</span>
       </div>
-      <div>
+      <div @click="$go('/evaluationCenter')">
         <van-icon  name="records" size="30" />
         <br>
         <span>评价</span>
       </div>
-      <div>
+      <div to="">
         <van-icon name="points" size="30"/>
         <br>
         <span>已完成</span>

@@ -30,26 +30,37 @@ export default {
   components: {},
   methods: {
     onSave(content) {
-      //console.log(content);
-      let args = {
-        name: content.name,
-        tel: content.tel,
-        province: content.province,
-        city: content.city,
-        county: content.county,
-        addressDetail: content.addressDetail,
-        areaCode:content.areaCode,
-        address:
-          content.province +
-          content.city +
-          content.county +
-          content.addressDetail,
-        isDefault: content.isDefault,
-        id:content.id
-      };
-      this.$api.postAddress(args).then(res => {
+      console.log(content);
+      //  let args = {
+      //    name: content.name,
+      //    tel: content.tel,
+      //    province: content.province,
+      //    city: content.city,
+      //    county: content.county,
+      //    addressDetail: content.addressDetail,
+      //    areaCode:content.areaCode,
+      //    address:
+      //      content.province +
+      //      content.city +
+      //      content.county +
+      //      content.addressDetail,
+      //    isDefault: content.isDefault,
+      //    id:content.id
+      //  };
+
+       if(this.$route.query.item){
+          content.id = content._id
+       }
+      this.$api.postAddress(content).then(res => {
          //console.log(res);
          if(res.code === 200){
+           if(content.isDefault){
+                this.$api.setDefaultAddress(content.id).then(res => {
+                  if(res.code === 200){
+                      this.$toast('成功')
+                  }
+                })
+           }
            console.log('地址编辑成功');
          }else{
            console.log('地址添加失败');
@@ -59,7 +70,11 @@ export default {
        })
     },
     onDelete(content) {
-      console.log(content);
+      this.$api.deleteAddress(content._id).then(res => {
+        if(res.code === 200){
+          console.log('删除成功');
+        }
+      })
     },
     onChangeDetail(val) {
       console.log(123);
