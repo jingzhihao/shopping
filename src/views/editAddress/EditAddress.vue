@@ -48,20 +48,21 @@ export default {
       //    id:content.id
       //  };
 
-       if(this.$route.query.item){
-          content.id = content._id
-       }
+      //  if(this.$route.query.item){
+      //     content.id = content._id
+      //  }
       this.$api.postAddress(content).then(res => {
          //console.log(res);
          if(res.code === 200){
-           if(content.isDefault){
-                this.$api.setDefaultAddress(content.id).then(res => {
-                  if(res.code === 200){
-                      this.$toast('成功')
-                  }
-                })
-           }
-           console.log('地址编辑成功');
+          //  if(content.isDefault){
+          //       this.$api.setDefaultAddress(content.id).then(res => {
+          //         if(res.code === 200){
+          //             this.$toast('成功')
+          //         }
+          //       })
+          //  }
+           console.log('地址增加成功');
+           this.$toast('地址增加成功')
          }else{
            console.log('地址添加失败');
          }

@@ -8,7 +8,7 @@
         <not></not>
       </div>
       <div v-else-if="this.name !== ''">
-        <logged ></logged>
+        <logged></logged>
       </div>
     </div>
   </div>

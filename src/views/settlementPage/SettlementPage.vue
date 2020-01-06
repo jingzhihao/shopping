@@ -28,6 +28,7 @@
 export default {
   data() {
     return {
+      checked:false,
       arr:{}
     };
   },
@@ -36,10 +37,10 @@ export default {
     //生成订单
     onSubmit() {
       let obj = {
-        // 收货地址
-        //address: this.defaultAddress.addressDetail,
-        // 电话
-        //tel: this.defaultAddress.tel,
+         //收货地址
+        address: this.defaultAddress.addressDetail,
+         //电话
+        tel: this.defaultAddress.tel,
         // 所有商品的id
         orderId: this.ids,
         // 总价格
@@ -49,7 +50,7 @@ export default {
         // 商品数量
         count: this.count
       };
-      this.$api.placeOrder(obj).then(res => {
+      this.$api.placeOrder().then(res => {
         if (res.code === 200) {
           console.log(res);
         }
@@ -59,7 +60,7 @@ export default {
       this.$api.getDefaultAddress().then(res => {
         if (res.code === 200) {
           this.arr = res.defaultAdd;
-          console.log(res);
+          console.log(this.arr);
         }
       });
     }

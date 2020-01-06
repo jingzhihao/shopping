@@ -61,8 +61,10 @@ export default {
   mounted() {
     //this.getData();
     //this.mallCategoryId = this.$route.query.id
+    console.log(this.$route.query.id);
     if (this.$route.query.id) {
       this.mallCategoryId = this.$route.query.id;
+      console.log(this.mallCategoryId);
       this.getData();
     } else {
       this.getData();

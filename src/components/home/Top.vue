@@ -4,36 +4,80 @@
       <span class="city_t">{{city}}</span>
       <van-icon name="arrow-down" />
     </div>
-    <van-search
-      class="search"
-      v-model="value"
-      placeholder="请输入搜索关键词"
-      shape="round"
-      @search="onSearch"
-      background="none"
-    >
-    </van-search>
+    <div class="search">
+      <van-search
+        placeholder="请输入搜索关键词"
+        show-action
+        shape="round"
+        @search="onSearch"
+        @input="onSearch"
+        is-link
+        v-model="value"
+      >
+        <div slot="action" v-if="this.show === false">搜索</div>
+        <div slot="action" v-else-if="this.show === true" @click="clickquxiao">取消</div>
+      </van-search>
+
+      <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '85%' }">
+        <div class="neirong">
+           <div
+            class="neirong-one"
+            v-for="(item,index) in arr"
+            :key="index"
+            @click="$go(item.id)"
+          >
+            <div class="img">
+              <div class="img-one">
+                <img :src="item.image" width="58px" height="50px" />
+              </div>
+            </div>
+            <div class="comtent">
+              <div class="comtent-one">{{item.name}}</div>
+              <div class="comtent-two">
+                <div class="sale-four">￥{{item.orl_price}}</div>
+                <div class="sale-five">￥{{item.present_price}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </van-popup>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    arr:{
-      type:Object,
-      default: () => {}
-    }
-  },
+  props: {},
   data() {
     return {
       value: "",
-      city: "定位中.."
+      city: "定位中..",
+      show: false,
+      arr: [],
+      overlay: false
     };
   },
   components: {},
   methods: {
-    onSearch(val) {
-      console.log(val);
+    onSearch() {
+      console.log(this.value);
+       this.$api
+         .getSearch({
+           value: this.value,
+           page: 1
+         })
+         .then(res => {
+           console.log(res);
+           this.arr = res.data.list;
+         })
+         .catch(err => {});
+    },
+
+    showPopup() {
+      this.show = true;
+    },
+    clickquxiao() {
+      this.show = false;
     },
     getcity() {
       if (localStorage.getItem("city")) {
@@ -76,14 +120,21 @@ export default {
   },
   mounted() {
     this.postCity();
-    console.log(this.arr);
+    //this.onSearch()
+    //console.log(this.arr);
   },
   watch: {
-    value(val){
-        console.log(val);
-        //this.arr = this.arr.filter(item => {
-        // return JSON.stringify(item).includes(val);
-       //});
+     value(val) {
+    //   //console.log(val);
+       if (val !== "") {
+         this.show = true;
+         //this.onSearch()
+       }else{
+         this.show = false;
+       }
+      //this.arr = this.arr.filter(item => {
+      // return JSON.stringify(item).includes(val);
+      //});
     }
   },
   computed: {}
@@ -112,5 +163,58 @@ export default {
     font-size: 14px;
   }
 }
-
+.search {
+  width: 275px;
+  height: 50px;
+}
+.neirong {
+  width: 375px;
+}
+.neirong-one {
+  width: 375px;
+  height: 60px;
+  line-height: 40px;
+  font-size: 14px;
+  display: flex;
+  .img {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .comtent {
+    width: 275px;
+    height: 60px;
+    .comtent-one {
+      width: 275px;
+      height: 30px;
+      line-height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 15px;
+    }
+    .comtent-two {
+      width: 275px;
+      height: 30px;
+      display: flex;
+    }
+  }
+}
+.img-one {
+  width: 50px;
+  height: 50px;
+}
+.sale-four {
+  font-size: 15px;
+  color: red;
+  line-height: 30px;
+}
+.sale-five {
+  font-size: 13px;
+  color: #666;
+  line-height: 30px;
+  text-decoration: line-through;
+}
 </style>

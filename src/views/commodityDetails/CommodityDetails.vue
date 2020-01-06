@@ -7,10 +7,10 @@
       <div class="lunbo">
         <van-swipe :autoplay="3000" indicator-color="#666">
           <van-swipe-item>
-            <img class="image" :src="arr.image" width="350px" height="300px" />
+            <img :src="arr.image" width="350px" height="300px" />
           </van-swipe-item>
           <van-swipe-item>
-            <img class="image" :src="arr.image_path" width="350px" height="300px" />
+            <img :src="arr.image_path" width="350px" height="300px" />
           </van-swipe-item>
         </van-swipe>
       </div>
@@ -21,7 +21,7 @@
       <div class="freight">
         <div class="freight-one">运费：{{arr.__v}}</div>
         <div class="freight-one">剩余：{{arr.amount}}</div>
-        <div class="freight-two" >
+        <div class="freight-two">
           收藏:
           <div v-if="flag === true" @click="collection(arr.id)">点击收藏</div>
           <div v-else @click="getisCollection(arr.id)">取消收藏</div>
@@ -44,8 +44,33 @@
       <van-goods-action-icon icon="chat-o" text="客服" @click="onClickIcon" />
       <van-goods-action-icon icon="cart-o" text="购物车" @click="$go('/shoppingCart')" />
       <van-goods-action-button type="warning" text="加入购物车" @click="addCar(arr.id)" />
-      <van-goods-action-button type="danger" text="立即购买" @click="onClickButton" />
+      <van-goods-action-button type="danger" text="立即购买" @click="onClickButton(arr)" />
     </van-goods-action>
+    <van-popup v-model="show" closeable position="bottom" :style="{ height: '40%' }">
+      <div class="fwt">
+        <div class="font">
+          <div>
+            <img :src="arr.image" width="100px" height="100px" />
+          </div>
+          <div class="font_title">
+            <div>{{arr.name}}</div>
+            <div class="font_orl_price">￥{{arr.orl_price}}</div>
+          </div>
+        </div>
+        <div class="font_st">
+          <div>购买数量</div>
+          <div class>
+            <van-stepper v-model="arr.count" />
+          </div>
+        </div>
+        <div class="fwt_tt">
+          共1000件
+          <span class="font_s">每人限购50件</span>
+        </div>
+      </div>
+      <van-goods-action-button class="onClick" type="danger" text="立即购买" @click="onClick" />
+    </van-popup>
+    
   </div>
 </template>
 
@@ -56,29 +81,39 @@ export default {
       flag: true,
       arr: {},
       active: 0,
-      onClickIcon() {
-        Toast("点击图标");
-      },
-      onClickButton() {
-        Toast("点击按钮");
-      }
+      show: false,
+      list: []
     };
   },
   components: {},
   methods: {
+    onClickButton(arr) {
+      this.show = true;
+      console.log(arr);
+    },
+    onClickIcon() {
+      this.$toast('对不起，此功能暂未开发。敬请期待')
+    },
+    // 修改商品数量
+    onChange(val) {
+      console.log(val);
+    },
+    //
+    onClick() {
+      this.$go('/settlementPage')
+    },
     //点击收藏
     collection(va) {
       console.log(va);
-        this.$api.collection(va).then(res => {
-          console.log(res);
-          if (res.code === 200) {
-            this.$toast(res.msg);
-            this.getisCollection(va);
-          } else {
-            this.$toast("收藏失败");
-          }
-        });
-       
+      this.$api.collection(va).then(res => {
+        console.log(res);
+        if (res.code === 200) {
+          this.$toast(res.msg);
+          this.getisCollection(va);
+        } else {
+          this.$toast("收藏失败");
+        }
+      });
     },
     //取消收藏
     getisCollection(id) {
@@ -92,7 +127,7 @@ export default {
     },
     //加入购物车
     addCar(va) {
-      //console.log(va);
+      console.log(va);
       this.$api
         .addShop(va)
         .then(res => {
@@ -112,7 +147,7 @@ export default {
       this.$api
         .getGoodOne(this.$route.query.id)
         .then(res => {
-          //console.log(res);
+          console.log(res);
           this.arr = res.goods.goodsOne;
           console.log(this.arr);
         })
@@ -183,5 +218,37 @@ export default {
 }
 .des {
   text-align: center;
+}
+.font {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.font_st {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.fwt {
+  width: 95%;
+  margin: 6.667vw auto;
+}
+.font_s {
+  color: rgb(231, 75, 75);
+  font-size: 14px;
+}
+.fwt_tt {
+  font-size: 12px;
+  color: rgb(104, 104, 104);
+}
+.font_title {
+  margin: 7.667vw auto;
+}
+.font_orl_price {
+  color: rgb(211, 73, 73);
+}
+.onClick {
+  position: fixed;
+  bottom: 0;
 }
 </style>

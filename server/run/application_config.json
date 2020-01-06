@@ -134,7 +134,7 @@
       "files": 10,
       "fileExtensions": [],
       "whitelist": null,
-      "tmpdir": "C:\\Users\\敬智豪\\AppData\\Local\\Temp\\egg-multipart-tmp\\server",
+      "tmpdir": "C:\\Users\\ADMINI\\x7e1\\AppData\\Local\\Temp\\egg-multipart-tmp\\server",
       "cleanSchedule": {
         "cron": "0 30 4 * * *"
       }
@@ -263,7 +263,7 @@
       "license": "MIT"
     },
     "baseDir": "D:\\vue\\shopping\\server",
-    "HOME": "C:\\Users\\敬智豪",
+    "HOME": "C:\\Users\\Administrator",
     "rundir": "D:\\vue\\shopping\\server\\run",
     "dump": {
       "ignore": "<Set>"

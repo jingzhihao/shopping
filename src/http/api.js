@@ -10,19 +10,19 @@ export default {
      * isCollection     查询商品是否已收藏      参数：  id:商品的id
      * addShop          加入购物车             参数：  id:商品的id
      */
-    goodOne(id, page = 1) {
+    goodOne({ id, page = 1 }) {
         return service.req(`/goods/one?id=${id}&page=${page}`)
     },
 
-    collection(goods) {
+    collection({ goods }) {
         return service.req('/collection', goods)
     },
 
-    cancelCollection(id) {
+    cancelCollection({ id }) {
         return service.req('/cancelCollection', { id })
     },
 
-    isCollection(id) {
+    isCollection({ id }) {
         return service.req(`/isCollection`, { id })
     },
 
@@ -62,7 +62,7 @@ export default {
     //},
 
     //分类
-    category(id) {
+    category({ id }) {
         return service.req(`/classification?mallSubId=${id}`)
     },
     //详情
@@ -77,10 +77,10 @@ export default {
      * deleteShop   购物车商品删除      参数 id：需要删除的商品cid
      */
     getCard() {
-        return service.req(`/getCard`)
+        return service.req(`/getCard`, {})
     },
 
-    editCart({ count, id, mallPrice }) {
+    editCart(count, id, mallPrice) {
         return service.req('/editCart', {
             count,
             id,
@@ -89,7 +89,7 @@ export default {
     },
 
     deleteShop(id) {
-        return service.req('/deleteShop', id)
+        return service.req('/deleteShop', { _id: id })
     },
 
 
@@ -99,7 +99,7 @@ export default {
         return service.req('/recommend')
     },
     //首页的请求
-    getSearch(value, page = 1) {
+    getSearch({ value, page = 1 }) {
         return service.req('/search', {
             value,
             page
@@ -144,7 +144,7 @@ export default {
         return service.req(`/getDefaultAddress`)
     },
 
-    setDefaultAddress(id) {
+    setDefaultAddress({ id }) {
         return service.req(`/setDefaultAddress`, { id })
     },
 
@@ -152,13 +152,13 @@ export default {
         return service.req(`/address`, args)
     },
 
-    deleteAddress(id) {
+    deleteAddress({ id }) {
         return service.req('/deleteAddress', {
             id
         })
     },
 
-    getCollection(page = 1) {
+    getCollection({ page = 1 }) {
         return service.req(`/collection/list`, {
             params: { page }
         })
@@ -181,7 +181,7 @@ export default {
         })
     },
 
-    codeMsg(phone) {
+    codeMsg({ phone }) {
         return service.req('/sendCodeMsg', {
             phone
         })
@@ -191,19 +191,19 @@ export default {
         return service.req(`/myOrder`)
     },
 
-    alreadyEvaluated(page = 1) {
+    alreadyEvaluated({ page = 1 }) {
         return service.req('/alreadyEvaluated', {
             params: { page }
         })
     },
 
-    tobeEvaluated(page = 1) {
+    tobeEvaluated({ page = 1 }) {
         return service.req('/tobeEvaluated', {
             params: { page }
         })
     },
 
-    evaluateOne(_id) {
+    evaluateOne({ _id }) {
         return service.req('/evaluateOne', {
             _id
         })
