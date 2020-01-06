@@ -64,9 +64,10 @@ export default {
         this.arr.push(...this.city[item]);
       });
     },
-    Select(list) {
+    Select(value) {
       this.$router.go(-1);
-      this.$stors.state.city = this.$stors.list.name;
+      console.log(this.$stors.value.name);
+      //this.$stors.state.city = this.$stors.list.name;
     }
   },
   mounted() {
