@@ -70,10 +70,8 @@
       </div>
       <van-goods-action-button class="onClick" type="danger" text="立即购买" @click="onClick" />
     </van-popup>
-    
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -115,7 +113,7 @@ export default {
         // }
       });
     },
-    //取消收藏
+    //查询此商品是否已收藏
     getisCollection(id) {
       this.$api.isCollection(id).then(res => {
         if (res.isCollection === 1) {

@@ -14,9 +14,7 @@
           />
         </van-sidebar>
       </div>
-
-      <!--我是上面的东西-->
-
+      <!--左侧导航-->
       <div style="flex: 7">
         <van-tabs v-model="active" :ellipsis="false" @click="add">
           <van-tab
