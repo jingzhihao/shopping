@@ -22,7 +22,7 @@ import area from "../../js/area.js";
 export default {
   data() {
     return {
-      list:{},
+      list: {},
       area: area,
       searchResult: []
     };
@@ -30,60 +30,78 @@ export default {
   components: {},
   methods: {
     onSave(content) {
-      console.log(content);
-      //  let args = {
-      //    name: content.name,
-      //    tel: content.tel,
-      //    province: content.province,
-      //    city: content.city,
-      //    county: content.county,
-      //    addressDetail: content.addressDetail,
-      //    areaCode:content.areaCode,
-      //    address:
-      //      content.province +
-      //      content.city +
-      //      content.county +
-      //      content.addressDetail,
-      //    isDefault: content.isDefault,
-      //    id:content.id
-      //  };
+      //console.log(content._id);
+      //console.log(content.id);
+      // if(this.$route.query.item){
+      //    content.id = item._id
+      // }
+      //console.log(content);
+      let args = {
+        name: content.name,
+        tel: content.tel,
+        province: content.province,
+        city: content.city,
+        county: content.county,
+        addressDetail: content.addressDetail,
+        areaCode: content.areaCode,
+        address:
+          content.province +
+          content.city +
+          content.county +
+          content.addressDetail,
+        isDefault: content.isDefault,
+        id: content._id ? content._id : ""
+      };
 
-      //  if(this.$route.query.item){
-      //     content.id = content._id
-      //  }
-      this.$api.postAddress(content).then(res => {
-         //console.log(res);
-         if(res.code === 200){
-          //  if(content.isDefault){
-          //       this.$api.setDefaultAddress(content.id).then(res => {
-          //         if(res.code === 200){
-          //             this.$toast('成功')
-          //         }
-          //       })
-          //  }
-           console.log('地址增加成功');
-           this.$toast('地址增加成功')
-         }else{
-           console.log('地址添加失败');
-         }
-      }).catch(err => {
-         console.log(err);
-       })
+      this.$api
+        .postAddress(args)
+        .then(res => {
+          //console.log(res);
+          if (res.code === 200) {
+            //  if(content.isDefault){
+            //       this.$api.setDefaultAddress(content.id).then(res => {
+            //         if(res.code === 200){
+            //            this.$toast('设置默认地址成功')
+            //            //console.log('设置默认地址成功');
+            //         }
+            //       })
+            //  }
+            //console.log('地址增加成功');
+            if (args.id === "") {
+              this.$toast("地址新增成功");
+            }else{
+              this.$toast("地址编辑成功");
+            }
+          } else {
+            //console.log('地址添加失败');
+            this.$toast("地址编辑失败");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     onDelete(content) {
-      this.$api.deleteAddress(content._id).then(res => {
-        if(res.code === 200){
-          console.log('删除成功');
-        }
-      })
-    },
-    onChangeDetail(val) {
-      console.log(123);
+      //console.log(content._id);
+      this.$api
+        .deleteAddress(content._id)
+        .then(res => {
+          //console.log(res);
+          if (res.code === 200) {
+            //console.log('删除成功');
+            this.$toast("删除成功");
+          } else {
+            //console.log('删除失败');
+            this.$toast("删除失败");
+          }
+        })
+        .catch(err => {
+          console.log("删除异常");
+        });
     }
   },
   mounted() {
-      this.list = this.$route.query.item
-      
+    this.list = this.$route.query.item;
   },
   watch: {},
   computed: {}

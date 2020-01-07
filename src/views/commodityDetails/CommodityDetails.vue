@@ -23,8 +23,8 @@
         <div class="freight-one">剩余：{{arr.amount}}</div>
         <div class="freight-two">
           收藏:
-          <div v-if="flag === true" @click="collection(arr.id)">点击收藏</div>
-          <div v-else @click="getisCollection(arr.id)">取消收藏</div>
+          <div v-if="flag === true" @click="collection(arr)">点击收藏</div>
+          <div v-else @click="getisCollection(arr)">取消收藏</div>
         </div>
       </div>
       <div class="desc">
@@ -89,7 +89,7 @@ export default {
   methods: {
     onClickButton(arr) {
       this.show = true;
-      console.log(arr);
+      //console.log(arr);
     },
     onClickIcon() {
       this.$toast('对不起，此功能暂未开发。敬请期待')
@@ -107,12 +107,12 @@ export default {
       console.log(va);
       this.$api.collection(va).then(res => {
         console.log(res);
-        if (res.code === 200) {
-          this.$toast(res.msg);
-          this.getisCollection(va);
-        } else {
-          this.$toast("收藏失败");
-        }
+        // if (res.code === 200) {
+        //   this.$toast(res.msg);
+        //   this.getisCollection(va);
+        // } else {
+        //   this.$toast("收藏失败");
+        // }
       });
     },
     //取消收藏
@@ -127,7 +127,7 @@ export default {
     },
     //加入购物车
     addCar(va) {
-      console.log(va);
+      //console.log(va);
       this.$api
         .addShop(va)
         .then(res => {
@@ -147,7 +147,7 @@ export default {
       this.$api
         .getGoodOne(this.$route.query.id)
         .then(res => {
-          console.log(res);
+          //console.log(res);
           this.arr = res.goods.goodsOne;
           console.log(this.arr);
         })

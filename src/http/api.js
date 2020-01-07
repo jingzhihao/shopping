@@ -14,15 +14,15 @@ export default {
         return service.req(`/goods/one?id=${id}&page=${page}`)
     },
 
-    collection({ goods }) {
+    collection(goods) {
         return service.req('/collection', goods)
     },
 
-    cancelCollection({ id }) {
+    cancelCollection(id) {
         return service.req('/cancelCollection', { id })
     },
 
-    isCollection({ id }) {
+    isCollection(id) {
         return service.req(`/isCollection`, { id })
     },
 
@@ -57,12 +57,12 @@ export default {
     },
     //购物车支付页面(ShoppingPayMent)所有接口
     //placeOrder 提交订单 参数：address:收货地址,tel:电话，orderId：所有商品的id，totalPrice：总价格,idDirect:用来判断是购物车结算还是直接购买,count:商品数量
-    //placeOrder({...args }) {
-    //    return service.req('/order', args)
-    //},
+    placeOrder({...args }) {
+        return service.post('/order', args)
+    },
 
     //分类
-    category({ id }) {
+    category(id) {
         return service.req(`/classification?mallSubId=${id}`)
     },
     //详情
@@ -144,7 +144,7 @@ export default {
         return service.req(`/getDefaultAddress`)
     },
 
-    setDefaultAddress({ id }) {
+    setDefaultAddress(id) {
         return service.req(`/setDefaultAddress`, { id })
     },
 
@@ -152,18 +152,16 @@ export default {
         return service.req(`/address`, args)
     },
 
-    deleteAddress({ id }) {
+    deleteAddress(id) {
         return service.req('/deleteAddress', {
             id
         })
     },
-
-    getCollection({ page = 1 }) {
-        return service.req(`/collection/list`, {
+    getCollection(page = 1) {
+        return service.get(`/collection/list`, {
             params: { page }
         })
     },
-
     getRegister({ nickname, password, verify }) {
         return service.req('/register', {
             nickname,

@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="close">
-      <van-icon @click="dele(item)" name="delete" />
+      <van-icon @click="dele(item)" name="cross" />
     </div>
-    <div @click="check(item.id)" class="box">
+    <div @click="check()" class="box">
       <div>
-        <img :src="item.image_path" alt />
+        <img :src="list.image_path"/>
       </div>
       <div>
-        <div class="title van-ellipsis" v-html="$util.keyWord(item.name,keyword)"></div>
+        <div class="title van-ellipsis">{{list.name}}</div>
         <div class="price">
-          ￥{{item.present_price}}
-          <span>{{item.orl_price}}</span>
+          ￥{{list.present_price}}
+          <span>{{}}</span>
         </div>
       </div>
     </div>
@@ -50,7 +50,9 @@ export default {
       this.$router.push({ name: "commodityDetails", query: { id: item } });
     }
   },
-  mounted() {},
+  mounted() {
+    console.log(this.list);
+  },
   watch: {},
   computed: {}
 };

@@ -138,7 +138,7 @@ const cloneObj = (obj) => {
 }
 
 
-export {
+export default {
     chunk, //数组分块
     throttle, //函数节流
     debounce, //函数防抖

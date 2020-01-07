@@ -1,6 +1,7 @@
 <template>
   <div>
     <global-top>
+      <div slot="back"></div>
       <div slot="title">购物车</div>
     </global-top>
     <div>

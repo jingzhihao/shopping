@@ -4,96 +4,161 @@
       <div slot="back"></div>
       <div slot="title">商品分类</div>
     </global-top>
-    <div class="main">
-      <!-- 左侧导航栏 -->
-      <van-sidebar v-model="mallCategoryId" class="left">
-        <van-sidebar-item
-          v-for="item in arr"
-          @click="change(item)"
-          :key="item.id"
-          :title="item.mallCategoryName"
-        />
-      </van-sidebar>
-      <!-- 右侧内容 -->
-      <div class="right">
-        <food :category="data" :dataname="dataname"></food>
+    <div style="display: flex">
+      <div style="flex: 3">
+        <van-sidebar v-model="activeKey" @change="onChange">
+          <van-sidebar-item
+            v-for="(item,index) in arr"
+            :key="index"
+            :title="item.mallCategoryName"
+          />
+        </van-sidebar>
+      </div>
+
+      <!--我是上面的东西-->
+
+      <div style="flex: 7">
+        <van-tabs v-model="active" :ellipsis="false" @click="add">
+          <van-tab
+            v-for="(item,index) in list"
+            :key="index"
+            :title="item.mallSubName"
+            :name="item.mallSubId"
+          >
+            <div class="box" v-for="(item,index) in list1" :key="index" @click="$go(item.id)">
+              <div class="box-1">
+                <img :src="item.image_path" alt />
+              </div>
+              <div class="box-2">
+                <div class="box4">{{item.name}}</div>
+                <div class="box-3">
+                  ￥{{item.present_price}}
+                  <del class="price">￥{{item.orl_price}}</del>
+                </div>
+              </div>
+            </div>
+          </van-tab>
+        </van-tabs>
+        <br />
+        <br />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import food from "../../components/classify/Food";
 export default {
+  name: "Classification",
+  components: {},
+  props: {},
   data() {
     return {
+      list: [],
       arr: [],
-      mallCategoryId: 0,
-      data: [],
-      dataname: ""
+      activeKey: 0,
+      ruleForm: "",
+      active: 0,
+      list1: []
     };
   },
-  props: {},
-  components: {
-    food
-  },
   methods: {
-    //获取一、二级分类的数据（包括id）
-    getData() {
-      this.$api.getRecommend().then(res => {
-        if (res.code == 200) {
-          // 加载一级分类
-          this.arr = res.data.category;
-          //console.log(this.arr);
-          //加载二级分类的列表
-          this.data = res.data.category[this.mallCategoryId].bxMallSubDto;
-          //console.log(this.data);
-          this.dataname = res.data.category[this.mallCategoryId].bxMallSubDto[0].mallSubId;
-          console.log('name:'+this.dataname);
-        }
-      });
+    vsid(val) {},
+    //标签栏的数据
+    add(name) {
+      console.log(name);
+      this.$api
+        .category(name)
+        .then(res => {
+          this.list1 = res.dataList;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    change(item) {
-      //点击导航修改mallCategoryId
-      this.mallCategoryId = item.mallCategoryId;
+    getData() {
+      this.$api
+        .getRecommend()
+        .then(res => {
+          //获取侧边栏的数据
+          this.arr = res.data.category;
+          //详细获取侧边栏的下标
+          this.list = res.data.category[0].bxMallSubDto;
+          //进行判断，返回值code=200的时候
+          if (res.code === 200) {
+            //默认为第一项
+            this.onChange(0);
+          }
+          if (this.$route.query.id > 0) {
+            //获取到的下标小于0是，侧边栏的下边为1所以要减去1
+            this.activeKey = this.$route.query.id - 1;
+            //
+            this.list = this.arr[this.activeKey].bxMallSubDto;
+            //实时更新右侧数据
+            this.onChange(this.activeKey);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    onChange(index) {
+      //console.log(index);
+      //每次
+      this.active = 0;
+      this.list = this.arr[index].bxMallSubDto;
+      //获取具体分类的下标
+      this.ruleForm = this.arr[index].bxMallSubDto[0].mallSubId;
+      // console.log(this.ruleForm);
+      this.add(this.ruleForm);
     }
   },
   mounted() {
-    //this.getData();
-    //this.mallCategoryId = this.$route.query.id
-    console.log(this.$route.query.id);
-    if (this.$route.query.id) {
-      this.mallCategoryId = this.$route.query.id;
-      console.log(this.mallCategoryId);
-      this.getData();
-    } else {
-      this.getData();
-    }
+    this.getData();
   },
-  watch: {
-    //监听mallCategoryId，修改时进行异步获取
-    mallCategoryId(val) {
-      this.getData();
-    }
-  },
-  computed: {}
+  created() {},
+  filters: {},
+  computed: {},
+  watch: {},
+  directives: {}
 };
 </script>
 
-<style scoped lang='scss'>
-.main {
+<style scoped lang="scss">
+.box {
+  width: 275px;
+  height: 130px;
   display: flex;
-  height: 86vh;
-  .right {
-    width: 78%;
+  border-bottom: 1px solid #f8f2f2;
+  color: red;
+  margin-left: 10px;
+}
+.box-1 > img {
+  width: 100px;
+  height: 90px;
+}
+.box-1 {
+  height: 100px;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  border: 1px solid #f8f2f2;
+}
+.box-3 {
+  margin-top: 30px;
+  .price {
+    font-size: 12px;
+    color: black;
+    margin-left: 5px;
   }
 }
-.left {
-  height: 100%;
-  width: 22%;
-  background: #fafafa;
-  .van-sidebar-item {
-    padding: 10px;
-  }
+.box4 {
+  margin-top: 7px;
+}
+.box-2 {
+  margin-left: 15px;
+}
+.top-2 {
+  width: 275px;
+  background: white;
 }
 </style>

@@ -7,7 +7,7 @@
 
     <div class="font" v-if="this.arr.length === 0">
       暂无数据，请添加收货地址
-       <van-address-list @add="onAdd"/>
+      <van-address-list @add="onAdd" />
     </div>
     <div v-else-if="this.arr.length > 0">
       <van-address-list
@@ -25,8 +25,8 @@
 export default {
   data() {
     return {
-      chosenAddressId: "",
-      arr: [],
+      chosenAddressId: '1',
+      arr: []
     };
   },
   components: {},
@@ -36,8 +36,12 @@ export default {
       this.$api
         .getAddress()
         .then(res => {
-          //console.log(res);
           this.arr = res.address;
+           //console.log(this.arr);
+           this.arr.map((item,index) => {
+               item.id = (index+1).toString()
+             //console.log(index);
+           })
         })
         .catch(err => {
           console.log(err);

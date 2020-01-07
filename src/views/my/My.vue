@@ -36,6 +36,7 @@ export default {
   methods: {
     dele(){
      localStorage.name = this.name = ''
+     localStorage.removeItem('name')
     //  this.$api.loginOut().then(res => {
     //    console.log(res);
     //  })

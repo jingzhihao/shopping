@@ -10,9 +10,10 @@
           <span v-if="checkeds.length>0" class="sum">￥{{sum}}</span>
         </div>
         <div v-if="checkeds.length>0">请确认订单</div>
+        <br/>
         <div class="btn">
           <van-button type="danger" @click="del()">删除</van-button>
-          <van-button type="danger" @click="$go('/settlementPage')">去结算</van-button>
+          <van-button type="danger" @click="settle()">去结算</van-button>
         </div>
       </div>
     </div>
@@ -42,19 +43,30 @@ export default {
       checkeds: [1],
       checked: false,
       shopList: [],
-      
+      carList: []
     };
   },
   components: {},
   methods: {
+    //结算
+    settle() {
+      this.carList = this.shopList.filter(item => item.check);
+      //console.log(this.shopList);
+      //console.log(this.carList);
+      // '/settlementPage'
+      this.$router.push({
+        name: "settlementPage",
+        query: { carList: this.carList }
+      });
+    },
     del() {
       //把选中的商品进行删除
       this.shopList.map(item => {
         if (item.check) {
-          console.log(item.cid);
+          //console.log(item.cid);
           let id = item.cid;
           this.$api.deleteShop(item.cid).then(res => {
-            console.log(res);
+            //console.log(res);
             if (res.code === 200) {
               this.$toast("删除完毕");
               this.getCard();
@@ -112,12 +124,12 @@ export default {
 <style scoped lang='scss'>
 .container {
   width: 98%;
-  height: 100px;
+  height: 150px;
   margin: 10px auto;
   //border: 1px solid red;
   display: flex;
   justify-content: space-between;
-  //align-content: center;
+  align-items: center;
 }
 .total {
   width: 150px;
@@ -142,8 +154,8 @@ export default {
 }
 .img {
   .img_t {
-    width: 30.333vw;
-    height: 23.333vw;
+    width: 23.333vw;
+    height: 24.333vw;
   }
 }
 .checkbox {
@@ -153,11 +165,12 @@ export default {
   align-content: center;
 }
 .desc {
-  width: 200px;
+  margin: 0 10px;
+  width: 69.333vw;
 }
 .stepper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .titel {
   height: 30px;

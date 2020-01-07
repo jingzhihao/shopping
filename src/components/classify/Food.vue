@@ -41,7 +41,7 @@ export default {
   methods: {
     // 获取每项列表
     getDetail(name, title) {
-      console.log('没有数据：'+name);
+      console.log(name);
       this.$api.category(name).then(res => {
         if (res.code === 200) {
           this.arr = res.dataList;
