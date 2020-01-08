@@ -18,7 +18,7 @@
         <div slot="action" v-else-if="this.show === true" @click="clickquxiao">取消</div>
       </van-search>
 
-      <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '85%' }">
+      <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '88%' }">
         <div class="neirong">
            <div
             class="neirong-one"
@@ -60,7 +60,7 @@ export default {
   components: {},
   methods: {
     onSearch() {
-      console.log(this.value);
+      //console.log(this.value);
        this.$api
          .getSearch({
            value: this.value,

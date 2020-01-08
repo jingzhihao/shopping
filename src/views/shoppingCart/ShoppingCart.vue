@@ -9,7 +9,7 @@
         <not></not>
       </div>
       <div v-else-if="this.name !== ''">
-        <logged></logged>
+        <logged :shopList="this.shopList"></logged>
       </div>
     </div>
   </div>
@@ -21,15 +21,27 @@ import logged from "../../components/shoppingCar/Logged";
 export default {
   data() {
     return {
-      name: ''
+      name: '',
+      shopList:[]
     };
   },
   components: {
     not,
     logged
   },
-  methods: {},
+  methods: {
+    getCard() {
+      this.$api.getCard().then(res => {
+        //console.log(res);
+        if (res.code === 200) {
+          this.shopList = res.shopList;
+          //console.log(this.shopList);
+        }
+      });
+    },
+  },
   mounted() {
+    this.getCard();
     if (localStorage.name) {
       this.name = localStorage.getItem("name");
     }

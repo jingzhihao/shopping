@@ -34,7 +34,7 @@
         <div class="titel">{{item.name}}</div>
         <br />
         <div class="stepper">
-          <div class="stepper_mallPrice">￥{{item.mallPrice}}</div>
+          <div class="stepper_mallPrice">￥{{item.present_price}}</div>
           <div>×{{item.count}}</div>
         </div>
       </div>
@@ -59,7 +59,8 @@ export default {
     return {
       checked: false,
       arr: {},
-      carList: []
+      carList: [],
+      idDirect: false,
     };
   },
   components: {},
@@ -76,7 +77,7 @@ export default {
         // 总价格
         totalPrice: this.sum,
         // 用来判断是购物车结算还是直接购买
-        idDirect: false,
+        idDirect: this.idDirect,
         // 商品数量
         count: this.count
       };
@@ -96,10 +97,22 @@ export default {
       });
     }
   },
+  //组件内守卫
+  beforeRouteEnter (to, from, next) {
+    //console.log(from.name);
+    if(from.name === 'commodityDetails'){
+      //beforeRouteEnter 守卫 不能 访问 this，因为守卫在导航确认前被调用,因此即将登场的新组件还没被创建。
+     next(
+       vm=>{
+         vm.idDirect=true
+       }
+     )
+    }
+  },
   mounted() {
     this.getDefaultAddress();
     this.carList = this.$route.query.carList;
-    //console.log(this.carList);
+    console.log(this.carList);
   },
   watch: {},
   computed: {
@@ -116,7 +129,7 @@ export default {
     sum() {
       let sum = 0;
       this.carList.map(item => {
-          sum += item.mallPrice * item.count;
+          sum += item.present_price * item.count;
       });
       return sum.toFixed(2);
     }

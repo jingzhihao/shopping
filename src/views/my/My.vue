@@ -20,13 +20,12 @@
 </template>
 
 <script>
-
 import mybox from "../../components/my/Mybox";
 import mytop from "../../components/my/Mytop";
 export default {
   data() {
     return {
-      name:''
+      name: ""
     };
   },
   components: {
@@ -34,23 +33,22 @@ export default {
     mytop
   },
   methods: {
-    dele(){
-     localStorage.name = this.name = ''
-     localStorage.removeItem('name')
-    //  this.$api.loginOut().then(res => {
-    //    console.log(res);
-    //  })
+    dele() {
+      localStorage.name = this.name = "";
+      localStorage.removeItem("name");
+      //  this.$api.loginOut().then(res => {
+      //    console.log(res);
+      //  })
     },
-    login(){
-      this.$router.push('/login')
+    login() {
+      this.$router.push("/login");
     }
   },
   mounted() {
-
-    if(localStorage.name){
-    this.name = localStorage.getItem("name")
-}
-},
+    if (localStorage.name) {
+      this.name = localStorage.getItem("name");
+    }
+  },
   watch: {},
   computed: {}
 };

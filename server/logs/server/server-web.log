@@ -4036,3 +4036,138 @@ hostname: XTZ-20190626BHE
 pid: 7348
 hostname: XTZ-20190626BHE
 
+2020-01-08 09:46:09,152 ERROR 5664 [-/127.0.0.1/-/14ms POST /v1/order] nodejs.TypeError: Cannot read property 'count' of undefined
+    at OperatingGoodsController.order (D:\vue\shopping\server\app\controller\api\operatingGoods.js:197:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+
+2020-01-08 09:47:17,877 ERROR 5664 [-/127.0.0.1/-/8ms POST /v1/order] nodejs.TypeError: Cannot read property 'count' of undefined
+    at OperatingGoodsController.order (D:\vue\shopping\server\app\controller\api\operatingGoods.js:197:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+
+2020-01-08 09:49:50,512 ERROR 5664 [-/127.0.0.1/-/2ms POST /v1/order] nodejs.TypeError: Cannot read property 'count' of undefined
+    at OperatingGoodsController.order (D:\vue\shopping\server\app\controller\api\operatingGoods.js:197:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+
+2020-01-08 09:55:49,162 ERROR 5664 [-/127.0.0.1/-/7ms POST /v1/order] nodejs.TypeError: Cannot read property 'count' of undefined
+    at OperatingGoodsController.order (D:\vue\shopping\server\app\controller\api\operatingGoods.js:197:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+
+2020-01-08 10:08:06,784 ERROR 5664 [-/127.0.0.1/-/7ms POST /v1/order] nodejs.TypeError: Cannot read property 'count' of undefined
+    at OperatingGoodsController.order (D:\vue\shopping\server\app\controller\api\operatingGoods.js:197:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+
+2020-01-08 10:08:36,320 ERROR 5664 [-/127.0.0.1/-/7ms POST /v1/order] nodejs.TypeError: Cannot read property 'count' of undefined
+    at OperatingGoodsController.order (D:\vue\shopping\server\app\controller\api\operatingGoods.js:197:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async D:\vue\shopping\server\app\middleware\isLogin.js:15:13
+    at async D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\vue\shopping\server\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\vue\shopping\server\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\vue\shopping\server\node_modules\koa-bodyparser\index.js:86:5)
+    at async D:\vue\shopping\server\node_modules\koa-static-cache\index.js:51:63
+    at async notfound (D:\vue\shopping\server\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (D:\vue\shopping\server\node_modules\egg\app\middleware\meta.js:12:5)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+
+2020-01-08 14:38:40,538 ERROR 5664 [-/127.0.0.1/-/17ms POST /v1/goodsOne/comment] nodejs.TypeError: Cannot read property 'length' of undefined
+    at OperatingGoodsController.comment (D:\vue\shopping\server\app\controller\api\operatingGoods.js:247:24)
+    at Object.callFn (D:\vue\shopping\server\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\vue\shopping\server\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\vue\shopping\server\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\vue\shopping\server\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\vue\shopping\server\node_modules\koa-compose\index.js:44:32)
+    at next (D:\vue\shopping\server\node_modules\koa-compose\index.js:45:18)
+    at D:\vue\shopping\server\node_modules\@eggjs\router\lib\router.js:190:18
+    at dispatch (D:\vue\shopping\server\node_modules\koa-compose\index.js:44:32)
+    at D:\vue\shopping\server\node_modules\koa-compose\index.js:36:12
+    at dispatch (D:\vue\shopping\server\node_modules\@eggjs\router\lib\router.js:195:33)
+    at dispatch (D:\vue\shopping\server\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at D:\vue\shopping\server\app\middleware\isLogin.js:15:19
+    at dispatch (D:\vue\shopping\server\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at D:\vue\shopping\server\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:56
+    at dispatch (D:\vue\shopping\server\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 5664
+hostname: XTZ-20190626BHE
+

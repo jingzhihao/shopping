@@ -16,15 +16,15 @@
       </div>
       <div class="titles">
         <div class="title">{{arr.name}}</div>
-        <div class="money">￥{{arr.orl_price}}</div>
+        <div class="money">￥{{arr.present_price}}</div>
       </div>
       <div class="freight">
         <div class="freight-one">运费：{{arr.__v}}</div>
         <div class="freight-one">剩余：{{arr.amount}}</div>
         <div class="freight-two">
           收藏:
-          <div v-if="flag === true" @click="collection(arr)">点击收藏</div>
-          <div v-else @click="getisCollection(arr)">取消收藏</div>
+          <div v-if="this.flag === false" @click="collection(arr)">点击收藏</div>
+          <div v-else @click="cancelCollection(arr.id)">取消收藏</div>
         </div>
       </div>
       <div class="desc">
@@ -37,7 +37,26 @@
         <van-tab title="商品详情">
           <div v-html="arr.detail"></div>
         </van-tab>
-        <van-tab title="用户评论" class="des">暂无评论</van-tab>
+        <van-tab title="用户评论" class="des">
+          <div v-if="list.length > 0">
+            <div v-for="item in list" :key="item.id">
+              <div class="header_te">
+                <div class="header">
+                  <img class="imga" src="../../assets/img/my.png" alt />
+                  <div>
+                    <div class="name">123</div>
+                    <div>
+                      <van-rate v-model="item.rate" />
+                    </div>
+                  </div>
+                  <div class="comment_time">{{item.comment_time}}</div>
+                </div>
+                <div class="content">评论内容：{{item.content}}</div>
+              </div>
+            </div>
+          </div>
+          <div v-else>暂无评论</div>
+        </van-tab>
       </van-tabs>
     </div>
     <van-goods-action>
@@ -68,7 +87,7 @@
           <span class="font_s">每人限购50件</span>
         </div>
       </div>
-      <van-goods-action-button class="onClick" type="danger" text="立即购买" @click="onClick" />
+      <van-goods-action-button class="onClick" type="danger" text="立即购买" @click="onClick(arr)" />
     </van-popup>
   </div>
 </template>
@@ -76,7 +95,7 @@
 export default {
   data() {
     return {
-      flag: true,
+      flag: false,
       arr: {},
       active: 0,
       show: false,
@@ -85,41 +104,65 @@ export default {
   },
   components: {},
   methods: {
+    //取消收藏
+    cancelCollection(va) {
+      console.log(va);
+      this.$api.cancelCollection(va).then(res => {
+        console.log(res);
+        if (res.code === 200) {
+          this.flag = false;
+          this.$toast(res.msg);
+        }
+      });
+    },
+    //立即购买弹出层
     onClickButton(arr) {
       this.show = true;
       //console.log(arr);
     },
+    //客服
     onClickIcon() {
-      this.$toast('对不起，此功能暂未开发。敬请期待')
+      this.$toast("对不起，此功能暂未开发。敬请期待");
     },
     // 修改商品数量
     onChange(val) {
       console.log(val);
     },
-    //
-    onClick() {
-      this.$go('/settlementPage')
+    //立即购买
+    onClick(va) {
+      let carList = [va];
+      carList.map(item => {
+        item.idDirect = true;
+        item.cid = item.id;
+      });
+      this.$router.push({
+        name: "settlementPage",
+        query: { carList: carList }
+      });
+
+      //this.$go("/settlementPage",va);
     },
     //点击收藏
     collection(va) {
       console.log(va);
       this.$api.collection(va).then(res => {
         console.log(res);
-        // if (res.code === 200) {
-        //   this.$toast(res.msg);
-        //   this.getisCollection(va);
-        // } else {
-        //   this.$toast("收藏失败");
-        // }
+        if (res.code === 200) {
+          this.$toast(res.msg);
+          this.getisCollection(va);
+        } else {
+          this.$toast("收藏失败");
+        }
       });
     },
     //查询此商品是否已收藏
-    getisCollection(id) {
-      this.$api.isCollection(id).then(res => {
+    getisCollection() {
+      this.$api.isCollection(this.arr.id).then(res => {
+        //console.log(res);
         if (res.isCollection === 1) {
-          this.flag = false;
-        } else {
           this.flag = true;
+        } else {
+          this.flag = false;
         }
       });
     },
@@ -147,7 +190,9 @@ export default {
         .then(res => {
           //console.log(res);
           this.arr = res.goods.goodsOne;
-          console.log(this.arr);
+          this.list = res.goods.comment;
+          console.log(this.list);
+          this.getisCollection();
         })
         .catch(err => {
           console.log(err);
@@ -214,9 +259,7 @@ export default {
   width: 20px;
   height: 18px;
 }
-.des {
-  text-align: center;
-}
+
 .font {
   display: flex;
   justify-content: center;
@@ -248,5 +291,27 @@ export default {
 .onClick {
   position: fixed;
   bottom: 0;
+}
+.header_te{
+  height: 150px;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .imga {
+    width: 40px;
+    height: 40px;
+  }
+  .comment_time {
+    font-size: 14px;
+  }
+  .name {
+    height: 30px;
+  }
+}
+.content{
+  width: 95%;
+  margin: 5px auto;
 }
 </style>

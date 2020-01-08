@@ -38,11 +38,17 @@
 </template>
 <script>
 export default {
+  props:{
+    shopList:{
+      type:Array,
+      default: () => []
+    }
+  },
   data() {
     return {
       checkeds: [1],
       checked: false,
-      shopList: [],
+      
       carList: []
     };
   },
@@ -86,15 +92,15 @@ export default {
         return item.check === true;
       });
     },
-    getCard() {
-      this.$api.getCard().then(res => {
-        //console.log(res);
-        if (res.code === 200) {
-          this.shopList = res.shopList;
-          //console.log(this.shopList);
-        }
-      });
-    },
+    // getCard() {
+    //   this.$api.getCard().then(res => {
+    //     //console.log(res);
+    //     if (res.code === 200) {
+    //       this.shopList = res.shopList;
+    //       //console.log(this.shopList);
+    //     }
+    //   });
+    // },
     // 修改商品数量
     onChange(val) {
       console.log(val);
@@ -104,7 +110,7 @@ export default {
     }
   },
   mounted() {
-    this.getCard();
+    
   },
   watch: {},
   computed: {

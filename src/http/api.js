@@ -46,14 +46,14 @@ export default {
     },
 
     saveUser({...args }) {
-        return service.req(`/saveUser`, args)
+        return service.req(`/saveUser`, { args })
     },
     getOrderNum() {
         return service.req(`/myOrder/orderNum`)
     },
 
     comment({...args }) {
-        return service.req(`/goodsOne/comment`, args)
+        return service.post(`/goodsOne/comment`, args)
     },
     //购物车支付页面(ShoppingPayMent)所有接口
     //placeOrder 提交订单 参数：address:收货地址,tel:电话，orderId：所有商品的id，totalPrice：总价格,idDirect:用来判断是购物车结算还是直接购买,count:商品数量
@@ -189,19 +189,19 @@ export default {
         return service.req(`/myOrder`)
     },
 
-    alreadyEvaluated({ page = 1 }) {
-        return service.req('/alreadyEvaluated', {
+    alreadyEvaluated(page = 1) {
+        return service.get('/alreadyEvaluated', {
             params: { page }
         })
     },
 
-    tobeEvaluated({ page = 1 }) {
-        return service.req('/tobeEvaluated', {
+    tobeEvaluated(page = 1) {
+        return service.get('/tobeEvaluated', {
             params: { page }
         })
     },
 
-    evaluateOne({ _id }) {
+    evaluateOne(_id) {
         return service.req('/evaluateOne', {
             _id
         })
