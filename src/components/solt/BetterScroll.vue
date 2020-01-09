@@ -18,7 +18,7 @@ export default {
     init() {
       this.bs = new BScroll(".wrapperX", {
         scrollX: true,
-        click: true,
+        click: false,
         probeType: 3 // listening scroll hook
       });
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div @click="$go('/city')" class="city">
-      <span class="city_t">{{city}}</span>
+      <span class="city_t">{{this.$store.state.city}}</span>
       <van-icon name="arrow-down" />
     </div>
     <div class="search">
@@ -19,13 +19,9 @@
       </van-search>
 
       <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '88%' }">
+        <div class="history">浏览历史{{this.history}}</div>
         <div class="neirong">
-           <div
-            class="neirong-one"
-            v-for="(item,index) in arr"
-            :key="index"
-            @click="$go(item.id)"
-          >
+          <div class="neirong-one" v-for="(item,index) in arr" :key="index" @click="$go(item.id)">
             <div class="img">
               <div class="img-one">
                 <img :src="item.image" width="58px" height="50px" />
@@ -51,26 +47,37 @@ export default {
   data() {
     return {
       value: "",
-      city: "定位中..",
       show: false,
       arr: [],
-      overlay: false
+      overlay: false,
+      history: []
     };
   },
   components: {},
   methods: {
+    //从搜索跳转到详情
+
+    //
     onSearch() {
       //console.log(this.value);
-       this.$api
-         .getSearch({
-           value: this.value,
-           page: 1
-         })
-         .then(res => {
-           console.log(res);
-           this.arr = res.data.list;
-         })
-         .catch(err => {});
+      this.$api
+        .getSearch({
+          value: this.value,
+          page: 1
+        })
+        .then(res => {
+          console.log(res);
+          this.arr = res.data.list;
+          let flag = this.history.every(item => {
+            return item !== this.value;
+          });
+          if (false || this.history.length < 1) {
+            this.history.push(this.value);
+            console.log(this.history);
+            localStorage.setItem("history", this.history);
+          }
+        })
+        .catch(err => {});
     },
 
     showPopup() {
@@ -79,59 +86,57 @@ export default {
     clickquxiao() {
       this.show = false;
     },
-    getcity() {
-      if (localStorage.getItem("city")) {
-        //console.log(localStorage.getItem("city"));
-        this.city = localStorage.getItem("city");
-      } else {
-        this, (city = "未获取");
-      }
-    },
     postCity() {
-      let _this = this;
-      var map = new AMap.Map("container", {
-        resizeEnable: true
-      });
-      AMap.plugin("AMap.Geolocation", function() {
-        var geolocation = new AMap.Geolocation({
-          enableHighAccuracy: true, //是否使用高精度定位，默认:true
-          timeout: 10000, //超过10秒后停止定位，默认：5s
-          buttonPosition: "RB", //定位按钮的停靠位置
-          buttonOffset: new AMap.Pixel(10, 20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-          zoomToAccuracy: true //定位成功后是否自动调整地图视野到定位点
+      if (this.$store.state.city === "定位中..") {
+        let _this = this;
+        var map = new AMap.Map("container", {
+          resizeEnable: true
         });
-        map.addControl(geolocation);
-        geolocation.getCurrentPosition();
-        AMap.event.addListener(geolocation, "complete", onComplete);
-        AMap.event.addListener(geolocation, "err", onError);
-      });
-      //解析定位结果
-      function onComplete(data) {
-        _this.city = data.addressComponent.city;
-        //console.log(JSON.parse(JSON.stringify(data.addressComponent)));
-      }
-      //解析定位错误信息
-      function onError(data) {
-        document.getElementById("status").innerHTML = "定位失败";
-        document.getElementById("result").innerHTML =
-          "失败原因排查信息:" + data.message;
+        AMap.plugin("AMap.Geolocation", function() {
+          var geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true, //是否使用高精度定位，默认:true
+            timeout: 10000, //超过10秒后停止定位，默认：5s
+            buttonPosition: "RB", //定位按钮的停靠位置
+            buttonOffset: new AMap.Pixel(10, 20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true //定位成功后是否自动调整地图视野到定位点
+          });
+          map.addControl(geolocation);
+          geolocation.getCurrentPosition();
+          AMap.event.addListener(geolocation, "complete", onComplete);
+          AMap.event.addListener(geolocation, "err", onError);
+        });
+        //解析定位结果
+        function onComplete(data) {
+          _this.$store.state.city = data.addressComponent.city;
+          //console.log(JSON.parse(JSON.stringify(data.addressComponent)));
+          // console.log(_this.$store.state.city);
+        }
+        //解析定位错误信息
+        function onError(data) {
+          document.getElementById("status").innerHTML = "定位失败";
+          document.getElementById("result").innerHTML =
+            "失败原因排查信息:" + data.message;
+        }
       }
     }
   },
   mounted() {
     this.postCity();
+    //console.log(this.$store.state.history);
+    this.history = localStorage.getItem("history")
+    console.log(this.history);
     //this.onSearch()
     //console.log(this.arr);
   },
   watch: {
-     value(val) {
-    //   //console.log(val);
-       if (val !== "") {
-         this.show = true;
-         //this.onSearch()
-       }else{
-         this.show = false;
-       }
+    value(val) {
+      //   //console.log(val);
+      if (val !== "") {
+        this.show = true;
+        //this.onSearch()
+      } else {
+        this.show = false;
+      }
       //this.arr = this.arr.filter(item => {
       // return JSON.stringify(item).includes(val);
       //});
@@ -153,11 +158,11 @@ export default {
   width: 80px;
   display: flex;
   font-size: 14px;
-  line-height: 34px;
+  line-height: 14.067vw;
   height: 34px;
   margin-left: 10px;
   .van-icon {
-    line-height: 34px;
+    line-height: 14.067vw;
   }
   .city_t {
     font-size: 14px;

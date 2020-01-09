@@ -14,6 +14,7 @@
         v-model="chosenAddressId"
         :list="arr"
         default-tag-text="默认"
+        @select="select"
         @add="onAdd"
         @edit="onEdit"
       />
@@ -25,23 +26,28 @@
 export default {
   data() {
     return {
-      chosenAddressId: '1',
+      chosenAddressId: "1",
       arr: []
     };
   },
   components: {},
   methods: {
+    //修改订单地址
+    select(item) {
+      this.$store.state.addRess = item;
+      this.$store.state.addId = item.id;
+    },
     //获取用户的地址
     getAdd() {
       this.$api
         .getAddress()
         .then(res => {
           this.arr = res.address;
-           //console.log(this.arr);
-           this.arr.map((item,index) => {
-               item.id = (index+1).toString()
-             //console.log(index);
-           })
+          //console.log(this.arr);
+          this.arr.map((item, index) => {
+            item.id = (index + 1).toString();
+            //console.log(index);
+          });
         })
         .catch(err => {
           console.log(err);
@@ -49,13 +55,12 @@ export default {
     },
     onAdd() {
       //console.log(321);
-     this.$router.push('/editAddress')
+      this.$router.push("/editAddress");
     },
 
     onEdit(item) {
       //console.log(item);
-      this.$router.push({name:'editAddress',query:{item:item}})
-    
+      this.$router.push({ name: "editAddress", query: { item: item } });
     }
   },
   mounted() {

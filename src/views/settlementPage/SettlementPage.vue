@@ -20,7 +20,7 @@
         <div class="address_t">(收货不便时，可以选择免费代收服务)</div>
       </div>
       <div class="location-o">
-        <van-icon name="arrow" />
+        <van-icon name="arrow" @click="$go('/addressList')" />
       </div>
     </div>
     <div>
@@ -45,7 +45,6 @@
         合计：
         <span class="sum">￥{{sum}}</span>
       </div>
-
       <div class="btn">
         <van-button type="danger" @click="onSubmit()">提交订单</van-button>
       </div>
@@ -60,7 +59,7 @@ export default {
       checked: false,
       arr: {},
       carList: [],
-      idDirect: false,
+      idDirect: ""
     };
   },
   components: {},
@@ -82,36 +81,44 @@ export default {
         count: this.count
       };
       console.log(obj);
-       this.$api.placeOrder(obj).then(res => {
-         if (res.code === 200) {
-           console.log(res);
-         }
-       });
+      this.$api.placeOrder(obj).then(res => {
+        if (res.code === 200) {
+          console.log(res);
+          this.$toast("提交订单成功");
+          this.$router.push('myOrder')
+        }
+      });
     },
     getDefaultAddress() {
       this.$api.getDefaultAddress().then(res => {
         if (res.code === 200) {
-          this.arr = res.defaultAdd;
-          //console.log(this.arr);
+          if (res.defaultAdd !== null && this.$store.state.addId === "") {
+            this.arr = res.defaultAdd;
+          } else {
+            this.arr = this.$store.state.addRess;
+          }
+          //console.log(this.arr);i
         }
       });
     }
   },
   //组件内守卫
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter(to, from, next) {
     //console.log(from.name);
-    if(from.name === 'commodityDetails'){
+    if (from.name === "commodityDetails") {
       //beforeRouteEnter 守卫 不能 访问 this，因为守卫在导航确认前被调用,因此即将登场的新组件还没被创建。
-     next(
-       vm=>{
-         vm.idDirect=true
-       }
-     )
+      next(vm => {
+        vm.idDirect = true;
+      });
+    } else {
+      next(vm => {
+        vm.idDirect = false;
+      });
     }
   },
   mounted() {
     this.getDefaultAddress();
-    this.carList = this.$route.query.carList;
+    this.carList = this.$store.state.carList;
     console.log(this.carList);
   },
   watch: {},
@@ -119,17 +126,17 @@ export default {
     ids() {
       let ids = [];
       this.carList.map(item => {
-          ids.push(item.cid);
+        ids.push(item.cid);
       });
       return ids;
     },
     count() {
-      return this.carList[0].count
+      return this.carList[0].count;
     },
     sum() {
       let sum = 0;
       this.carList.map(item => {
-          sum += item.present_price * item.count;
+        sum += item.present_price * item.count;
       });
       return sum.toFixed(2);
     }

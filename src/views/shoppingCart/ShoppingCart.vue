@@ -36,6 +36,7 @@ export default {
         if (res.code === 200) {
           this.shopList = res.shopList;
           //console.log(this.shopList);
+          this.$store.state.shoppingNum = this.shopList;
         }
       });
     },
@@ -45,6 +46,7 @@ export default {
     if (localStorage.name) {
       this.name = localStorage.getItem("name");
     }
+    //console.log(this.$store.state.shoppingNum);
   },
   watch: {},
   computed: {}

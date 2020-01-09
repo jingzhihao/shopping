@@ -1,18 +1,15 @@
 <template>
   <div>
-    <div class="close">
-      <van-icon @click="dele(item)" name="cross" />
-    </div>
-    <div @click="check()" class="box">
+    <div class="box" @click="check(item)">
       <div>
-        <img :src="list.image_path"/>
+        <img :src="list.image_path" />
       </div>
       <div>
         <div class="title van-ellipsis">{{list.name}}</div>
-        <div class="price">
-          ￥{{list.present_price}}
-          <span>{{}}</span>
-        </div>
+        <div class="price">￥{{list.present_price}}</div>
+      </div>
+      <div class="close">
+        <van-icon @click="dele(item)" name="cross" />
       </div>
     </div>
   </div>
@@ -51,7 +48,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.list);
+    //console.log(this.list);
   },
   watch: {},
   computed: {}
@@ -65,7 +62,6 @@ export default {
   padding: 0 20px;
   border-bottom: 0.1px solid rgb(243, 243, 243);
 }
-
 img {
   height: 80px;
   padding: 10px;
@@ -87,8 +83,7 @@ img {
   }
 }
 .close {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
+  height: 5px;
+  margin: 16.333vw 0;
 }
 </style>

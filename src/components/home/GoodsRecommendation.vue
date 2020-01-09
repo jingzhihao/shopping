@@ -1,8 +1,8 @@
 <template>
  <div class="category">
-    <div v-for="(item, index) in category" :key="index" @click="onSech(item.mallCategoryId)">
-        <img class="image" :src="item.image"/>
-        <div class="mallCategoryName">{{item.mallCategoryName}}</div>
+    <div v-for="(item, index) in category" :key="index">
+        <img class="image" :src="item.image" />
+        <div class="mallCategoryName" @click="onSech(item.mallCategoryId)">{{item.mallCategoryName}}</div>
       </div>
  </div>
 </template>

@@ -10,7 +10,7 @@
           <span v-if="checkeds.length>0" class="sum">￥{{sum}}</span>
         </div>
         <div v-if="checkeds.length>0">请确认订单</div>
-        <br/>
+        <br />
         <div class="btn">
           <van-button type="danger" @click="del()">删除</van-button>
           <van-button type="danger" @click="settle()">去结算</van-button>
@@ -38,9 +38,9 @@
 </template>
 <script>
 export default {
-  props:{
-    shopList:{
-      type:Array,
+  props: {
+    shopList: {
+      type: Array,
       default: () => []
     }
   },
@@ -48,7 +48,7 @@ export default {
     return {
       checkeds: [1],
       checked: false,
-      
+
       carList: []
     };
   },
@@ -58,11 +58,11 @@ export default {
     settle() {
       this.carList = this.shopList.filter(item => item.check);
       //console.log(this.shopList);
-      //console.log(this.carList);
+      console.log(this.carList);
       // '/settlementPage'
+      this.$store.state.carList = this.carList;
       this.$router.push({
-        name: "settlementPage",
-        query: { carList: this.carList }
+        name: "settlementPage"
       });
     },
     del() {
@@ -109,9 +109,7 @@ export default {
         .then(res => console.log(res));
     }
   },
-  mounted() {
-    
-  },
+  mounted() {},
   watch: {},
   computed: {
     sum() {

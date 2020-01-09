@@ -3,7 +3,7 @@
     <span>商品推荐</span>
     <betterScroll>
       <div class="fdt">
-        <div class="fot_t" v-for="(item,index) in recommend" :key="index" @click="$go(item.goodsId)">
+        <div class="fot_t" v-for="(item,index) in recommend" :key="index">
           <img :src="item.image" />
           <div class="goodsName">{{item.goodsName}}</div>
           <div class="mallPrice">
@@ -13,8 +13,8 @@
             >￥{{item.price}}</span>
           </div>
           <div class="cart">
-            <div class="icon"><van-icon name="shopping-cart" /></div>
-            <div class="details" >查看详情</div>
+            <div class="icon"><van-icon name="shopping-cart" @click="addCar(item.goodsId)"/></div>
+            <div class="details" @click="$go(item.goodsId)">查看详情</div>
           </div>
         </div>
       </div>
@@ -35,9 +35,27 @@ export default {
   },
   components: { betterScroll },
   methods: {
+    //加入购物车
+    addCar(va) {
+      //console.log(va);
+       this.$api
+         .addShop(va)
+         .then(res => {
+           if (res.code === 200) {
+             console.log("加入购物车成功");
+           } else {
+             console.log("加入购物车失败");
+           }
+           //console.log(res);
+         })
+         .catch(err => {
+           console.log(err);
+         });
+    },
+  },
+  mounted() {
    
   },
-  mounted() {},
   watch: {},
   computed: {}
 };

@@ -34,7 +34,7 @@
     </div>
     <!-- 搜索后展示内容 -->
     <div class="serchs" v-else>
-      <div class="serchcity" v-for="item in input" :key="item.id">{{item.name}}</div>
+      <div class="serchcity" v-for="item in input" :key="item.id" @click="Select(item)">{{item.name}}</div>
     </div>
   </div>
 </template>
@@ -64,10 +64,20 @@ export default {
         this.arr.push(...this.city[item]);
       });
     },
-    Select(value) {
+    select(va) {
+      //console.log(va);
       this.$router.go(-1);
-      console.log(this.$stors.value.name);
-      //this.$stors.state.city = this.$stors.list.name;
+      this.$store.state.city = va;
+    },
+    Select(value) {
+      //console.log(value.name);
+      this.$router.go(-1);
+      // console.log(this.$stors.value.name);
+      this.$store.state.city = value.name;
+      console.log(this.$store.state.city);
+    },
+    add(va) {
+      console.log(va);
     }
   },
   mounted() {

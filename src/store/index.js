@@ -5,7 +5,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        city: ''
+        //定位
+        city: '定位中..',
+        //购物车
+        shoppingNum: [],
+
+        addId: '',
+        addRess: {},
+        carList: [],
+        list: [],
+        //搜索历史
+        history: [],
+        //浏览历史
+        browsing: []
     },
     mutations: {
 

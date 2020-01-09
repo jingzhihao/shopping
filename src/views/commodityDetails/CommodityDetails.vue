@@ -135,18 +135,18 @@ export default {
         item.idDirect = true;
         item.cid = item.id;
       });
+      this.$store.state.carList = carList;
       this.$router.push({
-        name: "settlementPage",
-        query: { carList: carList }
+        name: "settlementPage"
       });
 
       //this.$go("/settlementPage",va);
     },
     //点击收藏
     collection(va) {
-      console.log(va);
+      //console.log(va);
       this.$api.collection(va).then(res => {
-        console.log(res);
+        //console.log(res);
         if (res.code === 200) {
           this.$toast(res.msg);
           this.getisCollection(va);
@@ -185,13 +185,15 @@ export default {
     },
 
     getGoodOne() {
+      
+
       this.$api
         .getGoodOne(this.$route.query.id)
         .then(res => {
           //console.log(res);
           this.arr = res.goods.goodsOne;
           this.list = res.goods.comment;
-          console.log(this.list);
+          console.log(res);
           this.getisCollection();
         })
         .catch(err => {
@@ -201,6 +203,13 @@ export default {
   },
   mounted() {
     this.getGoodOne();
+  },
+  beforeRouteLeave(to, from, next) {
+    if (!this.$store.state.browsing.some(item => item.id === this.arr.id)) {
+      this.$store.state.browsing.push(this.arr);
+      //sessionStorage.setItem("historyy", JSON.stringify(this.details));
+    }
+    next();
   },
   watch: {},
   computed: {}
@@ -292,7 +301,7 @@ export default {
   position: fixed;
   bottom: 0;
 }
-.header_te{
+.header_te {
   height: 150px;
 }
 .header {
@@ -310,7 +319,7 @@ export default {
     height: 30px;
   }
 }
-.content{
+.content {
   width: 95%;
   margin: 5px auto;
 }

@@ -6,7 +6,7 @@
     </global-top>
     <div class="font">
       <div class="name">
-        <div class="fout">
+        <div class="fout" @click="$go('/personal')">
           <img src="../../assets/img/my.png" />
         </div>
         <div class="fnt">欢迎你:{{this.name}}</div>
@@ -14,6 +14,7 @@
         <div @click="login()" v-else-if="this.name === ''">登录/注册</div>
       </div>
     </div>
+
     <mybox></mybox>
     <mytop></mytop>
   </div>
@@ -82,4 +83,5 @@ export default {
     font-size: 20px;
   }
 }
+
 </style>

@@ -6,7 +6,7 @@
         <!--刷新-->
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
           <!-- 吸顶 头部导航 -->
-          <top :arr="this.arr"></top>
+          <top class="top" :arr="this.arr"></top>
           <!--轮播图-->
           <slideshow class="slideshow" :slides="arr.slides"></slideshow>
           <!--导航 中外名酒-->
@@ -90,6 +90,9 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+.top{
+  height: 30px;
+}
 //轮播图
 .slideshow {
   height: 200px;

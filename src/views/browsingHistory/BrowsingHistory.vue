@@ -13,7 +13,9 @@ export default {
   },
   components: {},
   methods: {},
-  mounted() {},
+  mounted() {
+    console.log(this.$store.state.browsing);
+  },
   watch: {},
   computed: {}
 };

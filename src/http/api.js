@@ -149,7 +149,7 @@ export default {
     },
 
     postAddress({...args }) {
-        return service.req(`/address`, args)
+        return service.post(`/address`, args)
     },
 
     deleteAddress(id) {

@@ -3,11 +3,12 @@
     <global-top>
       <div slot="title">个人资料</div>
     </global-top>
-     <van-list v-model="loading" @load="onLoad">
+    <div>GitHub</div>
+     <van-list v-model="loading">
       <van-cell>
         <div>头像</div>
         <div>
-          <img src alt />
+          
         </div>
       </van-cell>
       <van-cell>
@@ -18,19 +19,19 @@
       </van-cell>
       <van-cell>
         <div>
-          用户名
+          昵称
           <input type="text" />
         </div>
       </van-cell>
       <van-cell>
         <div>
-          用户名
+          性别
           <input type="text" />
         </div>
       </van-cell>
       <van-cell>
         <div>
-          用户名
+          邮箱
           <input type="text" />
         </div>
       </van-cell>
@@ -44,7 +45,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      loading:''
+    };
   },
   components: {},
   methods: {},
@@ -55,10 +58,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-/deep/ .van-cell__value {
-  padding: 0;
-  display: flex;
-}
+
 input {
   background: none;
   outline: none;
