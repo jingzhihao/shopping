@@ -68,11 +68,18 @@ export default {
         .then(res => {
           console.log(res);
           this.arr = res.data.list;
-          let flag = this.history.every(item => {
-            return item !== this.value;
-          });
-          if (false || this.history.length < 1) {
+          let flag =false
+          if (this.history.length > 0) {
+             flag = this.history.every(item => {
+              return item !== this.value;
+            });
+          }
+          console.log(123);
+         
+          if (flag || this.history.length < 1) {
             this.history.push(this.value);
+
+            console.log(111);
             console.log(this.history);
             localStorage.setItem("history", this.history);
           }
@@ -123,7 +130,7 @@ export default {
   mounted() {
     this.postCity();
     //console.log(this.$store.state.history);
-    this.history = localStorage.getItem("history")
+    this.history = localStorage.getItem("history");
     console.log(this.history);
     //this.onSearch()
     //console.log(this.arr);
