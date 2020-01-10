@@ -185,15 +185,13 @@ export default {
     },
 
     getGoodOne() {
-      
-
       this.$api
         .getGoodOne(this.$route.query.id)
         .then(res => {
           //console.log(res);
           this.arr = res.goods.goodsOne;
           this.list = res.goods.comment;
-          console.log(res);
+          //console.log(res);
           this.getisCollection();
         })
         .catch(err => {

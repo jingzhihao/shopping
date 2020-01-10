@@ -9,6 +9,7 @@
         placeholder="请输入搜索关键词"
         show-action
         shape="round"
+        @focus="showPopup"
         @search="onSearch"
         @input="onSearch"
         is-link
@@ -19,7 +20,7 @@
       </van-search>
 
       <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '88%' }">
-        <div class="history">浏览历史{{this.history}}</div>
+        <div class="history">搜索历史{{this.history}}</div>
         <div class="neirong">
           <div class="neirong-one" v-for="(item,index) in arr" :key="index" @click="$go(item.id)">
             <div class="img">
@@ -55,8 +56,7 @@ export default {
   },
   components: {},
   methods: {
-    //从搜索跳转到详情
-
+    //
     //
     onSearch() {
       //console.log(this.value);
@@ -68,25 +68,14 @@ export default {
         .then(res => {
           console.log(res);
           this.arr = res.data.list;
-          let flag =false
-          if (this.history.length > 0) {
-             flag = this.history.every(item => {
-              return item !== this.value;
-            });
-          }
-          console.log(123);
-         
-          if (flag || this.history.length < 1) {
-            this.history.push(this.value);
-
-            console.log(111);
-            console.log(this.history);
-            localStorage.setItem("history", this.history);
-          }
+          console.log(this.history);
+         this.history.push(this.value)
+          console.log(this.history);
+          localStorage.setItem('history',this.history)
         })
         .catch(err => {});
     },
-
+    //获取焦点事情
     showPopup() {
       this.show = true;
     },
@@ -130,8 +119,11 @@ export default {
   mounted() {
     this.postCity();
     //console.log(this.$store.state.history);
-    this.history = localStorage.getItem("history");
-    console.log(this.history);
+ 
+   let str = localStorage.getItem("history");
+   this.history.push(str)
+   console.log(this.history);
+    // console.log(this.history);
     //this.onSearch()
     //console.log(this.arr);
   },
@@ -228,5 +220,9 @@ export default {
   color: #666;
   line-height: 30px;
   text-decoration: line-through;
+}
+.history{
+  border: 1px solid red;
+  margin: 10px auto;
 }
 </style>

@@ -9,7 +9,8 @@
       <div class="location-o">
         <van-icon name="location-o" size="30" />
       </div>
-      <div>
+      <div class="stringify" v-if="JSON.stringify(this.arr) === '{}'">请添加收获地址</div>
+      <div v-else>
         <div class="tel_name">
           <div>收货人:{{arr.name}}</div>
           <div>电话:{{arr.tel}}</div>
@@ -80,20 +81,22 @@ export default {
         // 商品数量
         count: this.count
       };
-      console.log(obj);
+      //console.log(obj);
       this.$api.placeOrder(obj).then(res => {
         if (res.code === 200) {
-          console.log(res);
+          //console.log(res);
           this.$toast("提交订单成功");
-          this.$router.push('myOrder')
+          this.$router.push("myOrder");
         }
       });
     },
     getDefaultAddress() {
       this.$api.getDefaultAddress().then(res => {
         if (res.code === 200) {
+          console.log(this.arr);
           if (res.defaultAdd !== null && this.$store.state.addId === "") {
             this.arr = res.defaultAdd;
+            console.log(this.arr);
           } else {
             this.arr = this.$store.state.addRess;
           }
@@ -119,7 +122,7 @@ export default {
   mounted() {
     this.getDefaultAddress();
     this.carList = this.$store.state.carList;
-    console.log(this.carList);
+    //console.log(this.carList);
   },
   watch: {},
   computed: {
@@ -202,5 +205,8 @@ export default {
 .address_t {
   color: rgb(196, 150, 0);
   font-size: 14px;
+}
+.stringify{
+  width: 65%;
 }
 </style>

@@ -902,3 +902,20 @@
 2020-01-09 08:34:52,743 INFO 6184 [egg-mongoose] mongodb://127.0.0.1/shoppingMall connected successfully
 2020-01-09 08:34:52,759 INFO 6184 [egg-mongoose] instance[0] start successfully
 2020-01-09 08:34:52,769 INFO 6184 [egg:core] dump config after ready, 8ms
+2020-01-10 08:45:22,557 INFO 5584 [egg:logger] init all loggers with options: {"dir":"D:\\vue\\shopping\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-01-10 08:45:22,585 INFO 5584 [egg-multipart] stream mode enable
+2020-01-10 08:45:23,145 INFO 5584 [egg-mongoose] connecting mongodb://127.0.0.1/shoppingMall
+2020-01-10 08:45:23,502 INFO 5584 [egg-static] starting static serve /public/ -> D:\vue\shopping\server\app\public
+2020-01-10 08:45:23,505 INFO 5584 [egg-security] use methodnoallow middleware
+2020-01-10 08:45:23,506 INFO 5584 [egg-security] use noopen middleware
+2020-01-10 08:45:23,507 INFO 5584 [egg-security] use nosniff middleware
+2020-01-10 08:45:23,507 INFO 5584 [egg-security] use xssProtection middleware
+2020-01-10 08:45:23,508 INFO 5584 [egg-security] use xframe middleware
+2020-01-10 08:45:23,509 INFO 5584 [egg-security] use dta middleware
+2020-01-10 08:45:23,509 INFO 5584 [egg-security] compose 6 middlewares into one security middleware
+2020-01-10 08:45:23,532 INFO 5584 [egg:core] dump config after load, 5ms
+2020-01-10 08:45:23,534 INFO 5584 [egg-mongoose] starting...
+2020-01-10 08:45:23,584 INFO 5584 [egg-mongoose] mongodb://127.0.0.1/shoppingMall connected successfully
+2020-01-10 08:45:23,596 INFO 5584 [egg-mongoose] instance[0] start successfully
+2020-01-10 08:45:23,600 INFO 5584 [egg-watcher:application] watcher start success
+2020-01-10 08:45:23,608 INFO 5584 [egg:core] dump config after ready, 5ms

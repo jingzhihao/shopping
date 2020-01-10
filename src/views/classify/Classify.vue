@@ -63,7 +63,7 @@ export default {
     vsid(val) {},
     //标签栏的数据
     add(name) {
-      console.log(name);
+      //console.log(name);
       this.$api
         .category(name)
         .then(res => {

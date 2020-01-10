@@ -42,7 +42,7 @@ export default {
     },
 
     user() {
-        return service.req(`/queryUser`)
+        return service.post(`/queryUser`)
     },
 
     saveUser({...args }) {
