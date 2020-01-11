@@ -168,20 +168,25 @@ export default {
     },
     //加入购物车
     addCar(va) {
-      //console.log(va);
-      this.$api
-        .addShop(va)
-        .then(res => {
-          if (res.code === 200) {
-            console.log("加入购物车成功");
-          } else {
-            console.log("加入购物车失败");
-          }
-          //console.log(res);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      //console.log(localStorage.getItem("name"));
+      if (localStorage.getItem("name") === null) {
+        this.$toast("请登录");
+      } else {
+        //console.log(va);
+        this.$api
+          .addShop(va)
+          .then(res => {
+            if (res.code === 200) {
+              console.log("加入购物车成功");
+            } else {
+              console.log("加入购物车失败");
+            }
+            //console.log(res);
+          })
+          .catch(err => {
+            //     console.log(err);
+          });
+      }
     },
 
     getGoodOne() {

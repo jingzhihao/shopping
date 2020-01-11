@@ -50,6 +50,19 @@ export default {
       this.name = localStorage.getItem("name");
     }
   },
+  beforeRouteLeave(to, from, next) {
+    if (
+      to.path === "/" ||
+      to.path === "/login" ||
+      
+      to.path === "/shopingCar" ||
+      this.name.trim() !== ""
+    ) {
+      next();
+    } else {
+      this.$toast.fail("您还未登录，请先登录");
+    }
+  },
   watch: {},
   computed: {}
 };
