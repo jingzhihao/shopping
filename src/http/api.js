@@ -33,7 +33,7 @@ export default {
      * 会员中心(My)所有接口
      * loginOut 退出登录
      * user     获取用户信息
-     * saveUser 修改保存用户信息(gender,email,year,month,day,id,nickname,avatar)
+     * saveUser 修改保存用户信息(gender,email,year,month,day,id,nickname)
      * getOrderNum 查询用户订单数量
      * comment  商品评论(id,rate,content, anonymous(是否匿名), _id, order_id, image=[])
      */
@@ -46,7 +46,7 @@ export default {
     },
 
     saveUser({...args }) {
-        return service.req(`/saveUser`, { args })
+        return service.post(`/saveUser`, {...args })
     },
     getOrderNum() {
         return service.req(`/myOrder/orderNum`)

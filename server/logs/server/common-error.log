@@ -4196,3 +4196,13 @@ hostname: XTZ-20190626BHE
 pid: 5664
 hostname: XTZ-20190626BHE
 
+2020-01-13 10:52:10,753 ERROR 7596 [-/127.0.0.1/-/14ms POST /v1/saveUser] nodejs.ENOENTError: ENOENT: no such file or directory, open 'D:\vue\shopping\server\app\public\avatar\1578883930740i7+++f7el7gcd845e09747c709dc115ec00288c.png'
+ENOENTError: ENOENT: no such file or directory, open 'D:\vue\shopping\server\app\public\avatar\1578883930740i7+++f7el7gcd845e09747c709dc115ec00288c.png'
+errno: -4058
+code: "ENOENT"
+syscall: "open"
+path: "D:\\vue\\shopping\\server\\app\\public\\avatar\\1578883930740i7+++f7el7gcd845e09747c709dc115ec00288c.png"
+name: "ENOENTError"
+pid: 7596
+hostname: XTZ-20190626BHE
+

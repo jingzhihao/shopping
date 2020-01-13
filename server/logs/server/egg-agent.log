@@ -2716,3 +2716,13 @@ hostname: LAPTOP-FVBLPV22
 2020-01-11 09:37:34,120 INFO 8176 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app.js"
 2020-01-11 09:37:34,120 INFO 8176 [egg-watcher:agent] watcher start success
 2020-01-11 09:37:34,133 INFO 8176 [egg:core] dump config after ready, 5ms
+2020-01-13 09:31:27,669 INFO 7788 [egg:logger] init all loggers with options: {"dir":"D:\\vue\\shopping\\server\\logs\\server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2020-01-13 09:31:27,677 INFO 7788 [egg:core] dump config after load, 4ms
+2020-01-13 09:31:27,737 INFO 7788 [egg-watcher] Start watching: ["D:\\vue\\shopping\\server\\app","D:\\vue\\shopping\\server\\config","D:\\vue\\shopping\\server\\mocks","D:\\vue\\shopping\\server\\mocks_proxy","D:\\vue\\shopping\\server\\app.js"]
+2020-01-13 09:31:27,737 INFO 7788 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app"
+2020-01-13 09:31:27,737 INFO 7788 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\config"
+2020-01-13 09:31:27,738 INFO 7788 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks"
+2020-01-13 09:31:27,738 INFO 7788 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\mocks_proxy"
+2020-01-13 09:31:27,738 INFO 7788 [egg-watcher] Start watching: "D:\\vue\\shopping\\server\\app.js"
+2020-01-13 09:31:27,738 INFO 7788 [egg-watcher:agent] watcher start success
+2020-01-13 09:31:27,758 INFO 7788 [egg:core] dump config after ready, 12ms

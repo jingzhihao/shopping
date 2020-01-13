@@ -4,12 +4,12 @@
       <div slot="title">浏览历史</div>
     </global-top>
 
-     <div v-if="this.browsing.length === 0" class="font">暂无数据</div>
+    <div v-if="this.browsing.length === 0" class="font">暂无数据</div>
     <!--有数据时展示-->
     <div v-else-if="this.browsing.length > 0">
       <!-- <collection v-for="(item,index) in arr" :list="item" :key="index"></collection> -->
       <div v-for="(item,index) in browsing" :key="index">
-        <div class="box" >
+        <div class="box">
           <div @click="$go(item.cid)">
             <img :src="item.image_path" />
           </div>
@@ -18,7 +18,7 @@
             <div class="price">￥{{item.present_price}}</div>
           </div>
           <div class="close">
-            <van-icon @click="dele(item)" name="cross" />
+            <van-icon @click="dele(index)" name="cross" />
           </div>
         </div>
       </div>
@@ -30,13 +30,19 @@
 export default {
   data() {
     return {
-      browsing:[]
+      browsing: []
     };
   },
   components: {},
-  methods: {},
+  methods: {
+    dele(val) {
+      console.log(val);
+      this.browsing.splice(val , 1)
+      //this.browsing = this,browsing.filter(item => (item = val));
+    }
+  },
   mounted() {
-    this.browsing = this.$store.state.browsing
+    this.browsing = this.$store.state.browsing;
     console.log(this.browsing);
   },
   watch: {},

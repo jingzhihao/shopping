@@ -19,8 +19,16 @@
         <div slot="action" v-else-if="this.show === true" @click="clickquxiao">取消</div>
       </van-search>
 
-      <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '88%' }">
-        <div class="history">搜索历史{{this.history}}</div>
+      <van-popup :overlay="overlay" v-model="show" position="left" :style="{ height: '85%' }">
+        <div class="history">搜索历史</div>
+        <div v-for="(item,index) in history" :key="index">
+          <div class="history_t">
+            <div>{{item}}</div>
+          </div>
+        </div>
+        <div class="but">
+          <van-button type="primary" @click="dele()">删除历史</van-button>
+        </div>
         <div class="neirong">
           <div class="neirong-one" v-for="(item,index) in arr" :key="index" @click="$go(item.id)">
             <div class="img">
@@ -57,6 +65,10 @@ export default {
   components: {},
   methods: {
     //
+    dele() {
+      this.history = [];
+      localStorage.removeItem("history");
+    },
     //
     onSearch() {
       //console.log(this.value);
@@ -69,9 +81,9 @@ export default {
           console.log(res);
           this.arr = res.data.list;
           console.log(this.history);
-         this.history.push(this.value)
+          this.history.push(this.value);
           console.log(this.history);
-          localStorage.setItem('history',this.history)
+          localStorage.setItem("history", this.history);
         })
         .catch(err => {});
     },
@@ -119,10 +131,10 @@ export default {
   mounted() {
     this.postCity();
     //console.log(this.$store.state.history);
- 
-   let str = localStorage.getItem("history");
-   this.history.push(str)
-   console.log(this.history);
+
+    let str = localStorage.getItem("history");
+    this.history.push(str);
+    console.log(this.history);
     // console.log(this.history);
     //this.onSearch()
     //console.log(this.arr);
@@ -221,8 +233,12 @@ export default {
   line-height: 30px;
   text-decoration: line-through;
 }
-.history{
-  border: 1px solid red;
+.history {
+  //border: 1px solid red;
   margin: 10px auto;
+}
+.history_t{
+  display: flex;
+  
 }
 </style>
